@@ -1,0 +1,5 @@
+name=HelloWorldC
+author=Human Person
+description=A small demo of the C API
+bundleID=com.panic.hellocapi
+imagePath=
