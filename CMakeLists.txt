@@ -25,15 +25,22 @@ set(CMAKE_CONFIGURATION_TYPES "Debug;Release")
 set(CMAKE_XCODE_GENERATE_SCHEME TRUE)
 
 # Game Name Customization
-set(PLAYDATE_GAME_NAME hello_world)
-set(PLAYDATE_GAME_DEVICE hello_world_DEVICE)
+set(PLAYDATE_GAME_NAME stackz)
+set(PLAYDATE_GAME_DEVICE stackz_DEVICE)
 
 project(${PLAYDATE_GAME_NAME} C ASM)
 
+file(GLOB SRC_GLOB
+     "src/*.c"
+     "src/*.h"
+)
+
+include_directories("src")
+
 if (TOOLCHAIN STREQUAL "armgcc")
-	add_executable(${PLAYDATE_GAME_DEVICE} src/main.c)
+	add_executable(${PLAYDATE_GAME_DEVICE} ${SRC_GLOB})
 else()
-	add_library(${PLAYDATE_GAME_NAME} SHARED src/main.c )
+	add_library(${PLAYDATE_GAME_NAME} SHARED ${SRC_GLOB} )
 endif()
 
 include(${SDK}/C_API/buildsupport/playdate_game.cmake)
