@@ -96,10 +96,10 @@ static int update(void* userdata)
 	DrawCuboid(pd, mine, &cam);
 	pd->system->drawFPS(0,0);
 
-	mine->rotation_x=pd->system->getCrankAngle() * (3.14159 / 180);
-	mine->rotation_y=pd->system->getCrankAngle() * (3.14159 / 180);
-	mine->rotation_z=pd->system->getCrankAngle() * (3.14159 / 180);
-	//mine->width= 100 + 10 * pd->system->getCrankAngle() * (3.14159 / 180);
+	// mine->rotation_x=pd->system->getCrankAngle() * (3.14159 / 180);
+	// mine->rotation_y=pd->system->getCrankAngle() * (3.14159 / 180);
+	// mine->rotation_z=pd->system->getCrankAngle() * (3.14159 / 180);
+	mine->depth= 100 + 10 * pd->system->getCrankAngle() * (3.14159 / 180);
 	
 	return 1;
 }

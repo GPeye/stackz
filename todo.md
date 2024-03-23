@@ -14,8 +14,9 @@ Sound
 mechanics
 ----------
 [x] use real cuboids instead of fake ones
-[] ease the creation of cuboids, width, depth, x y coord from center
-[] use a camera to enable changing perspective
+[x] ease the creation of cuboids, width, depth, x y coord from center
+[x] determine and draw faces, 3 faces with the highest average z should be forward facing
+[] use a camera to enable changing perspective? 
 [] determine overlap of a placed cuboid to the one beneath it
 [] use crank to change perspective
 [] use accelerometer to change perspective
