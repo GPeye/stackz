@@ -15,6 +15,7 @@
 typedef struct CuboidFace {
     float zindex;
     int points[12];
+    LCDColor color;
 } CuboidFace;
 
 void DrawBackground(PlaydateAPI* pd);

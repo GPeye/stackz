@@ -40,6 +40,16 @@ static void getFacesFromPoints(struct CuboidFace *face, float projectedPoints[8]
     floatFacePoints(projectedPoints, cuboidFacePoints, face->points);
 }
 
+static int compare(const void *s1, const void *s2)
+{
+    struct CuboidFace *e1 = (struct CuboidFace *)s1;
+    struct CuboidFace *e2 = (struct CuboidFace *)s2;
+    if(e1->zindex > e2->zindex)
+        return 1;
+    else
+        return -1;
+}
+
 
 //static void render
 
@@ -243,7 +253,7 @@ void DrawCuboid(PlaydateAPI *_pd, Cuboid *cuboid, Camera *cam)
 		_translate(SCREEN_WIDTH_CENTER, SCREEN_HEIGHT_CENTER, 0.f, &pp);
 		
 
-		pd->graphics->drawEllipse(pp[0], pp[1], 3,3,3,0,0,kColorBlack);
+		//pd->graphics->drawEllipse(pp[0], pp[1], 3,3,3,0,0,kColorBlack);
 		projectedPoints[ps][0] = pp[0];
 		projectedPoints[ps][1] = pp[1];
 		projectedPoints[ps][2] = pp[2];
@@ -259,31 +269,27 @@ void DrawCuboid(PlaydateAPI *_pd, Cuboid *cuboid, Camera *cam)
 	}
 
     CuboidFace faces[6];
+    faces[0].color = kColorBlack;
+    faces[1].color = LCD_PATTERN_DITHER_GREY20;
+    faces[2].color = LCD_PATTERN_DITHER_GREY70;
+    faces[3].color = LCD_PATTERN_DITHER_GREY45;
+    faces[4].color = LCD_PATTERN_DITHER_GREY55;
+    faces[5].color = LCD_PATTERN_DITHER_GREY35;
     getFacesFromPoints(&faces[0],projectedPoints,cuboidFacePoints1);
     getFacesFromPoints(&faces[1],projectedPoints,cuboidFacePoints2);
     getFacesFromPoints(&faces[2],projectedPoints,cuboidFacePoints3);
     getFacesFromPoints(&faces[3],projectedPoints,cuboidFacePoints4);
     getFacesFromPoints(&faces[4],projectedPoints,cuboidFacePoints5);
     getFacesFromPoints(&faces[5],projectedPoints,cuboidFacePoints6);
+
+    qsort(faces, 6, sizeof(struct CuboidFace), compare);
     
-
-    // really crummy way to display top 3 faces which isn't great with perpective
     float avgz = (faces[0].zindex+faces[1].zindex+faces[2].zindex+faces[3].zindex+faces[4].zindex+faces[5].zindex)/6;
-    if(faces[0].zindex > avgz)
-        pd->graphics->fillPolygon(4,faces[0].points,kColorBlack,0);
-    if(faces[1].zindex > avgz)
-        pd->graphics->fillPolygon(4,faces[1].points,LCD_PATTERN_DITHER_GREY50,0);
-    if(faces[2].zindex > avgz)
-        pd->graphics->fillPolygon(4,faces[2].points,LCD_PATTERN_DITHER_GREY40,0);
-    if(faces[3].zindex > avgz)
-        pd->graphics->fillPolygon(4,faces[3].points,LCD_PATTERN_DITHER_GREY40,0);
-    if(faces[4].zindex > avgz)
-        pd->graphics->fillPolygon(4,faces[4].points,LCD_PATTERN_DITHER_GREY25,0);
-    if(faces[5].zindex > avgz)
-        pd->graphics->fillPolygon(4,faces[5].points,LCD_PATTERN_DITHER_GREY25,0);
-
-    // TODO: sort top 3 faces and draw them in asc order so while it will waste draws
-    // they will be overlapped by the nearest face and you wont see it
+    for(int i=0;i<6;i++)
+    {
+        if(faces[i].zindex > avgz)
+            pd->graphics->fillPolygon(4,faces[i].points,faces[i].color,0);
+    }
     
 }
 
