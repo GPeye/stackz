@@ -3,6 +3,45 @@
 #include "lcdpatterns.h"
 
 static PlaydateAPI *pd;
+static int cuboidFacePoints1[] = {0,1,2,3};
+static int cuboidFacePoints2[] = {4,5,6,7};
+static int cuboidFacePoints3[] = {0,1,5,4};
+static int cuboidFacePoints4[] = {6,7,3,2};
+static int cuboidFacePoints5[] = {5,1,2,6};
+static int cuboidFacePoints6[] = {0,4,7,3};
+
+
+static float faceZIndex(float projectedPoints[8][3], int facepoints[4])
+{
+    return (projectedPoints[facepoints[0]][2]+
+        projectedPoints[facepoints[1]][2]+
+        projectedPoints[facepoints[2]][2]+
+        projectedPoints[facepoints[3]][2]) /4;
+}
+
+static floatFacePoints(float projectedPoints[8][3], int facepoints[4], int *points)
+{
+    int tpoints[12] = {
+        projectedPoints[facepoints[0]][0],
+        projectedPoints[facepoints[0]][1],
+        projectedPoints[facepoints[1]][0],
+        projectedPoints[facepoints[1]][1],
+        projectedPoints[facepoints[2]][0],
+        projectedPoints[facepoints[2]][1],
+        projectedPoints[facepoints[3]][0],
+        projectedPoints[facepoints[3]][1]
+    };
+    memcpy(points, tpoints, sizeof(tpoints));
+}
+
+static void getFacesFromPoints(struct CuboidFace *face, float projectedPoints[8][3], int cuboidFacePoints[4])
+{
+    face->zindex = faceZIndex(projectedPoints, cuboidFacePoints);
+    floatFacePoints(projectedPoints, cuboidFacePoints, face->points);
+}
+
+
+//static void render
 
 static void _translate(float x, float y, float z, float *arr)
 {
@@ -218,6 +257,34 @@ void DrawCuboid(PlaydateAPI *_pd, Cuboid *cuboid, Camera *cam)
 		connectPoints(i + 4, ((i + 1) % 4) + 4, projectedPoints);
 		connectPoints(i, i + 4, projectedPoints);
 	}
+
+    CuboidFace faces[6];
+    getFacesFromPoints(&faces[0],projectedPoints,cuboidFacePoints1);
+    getFacesFromPoints(&faces[1],projectedPoints,cuboidFacePoints2);
+    getFacesFromPoints(&faces[2],projectedPoints,cuboidFacePoints3);
+    getFacesFromPoints(&faces[3],projectedPoints,cuboidFacePoints4);
+    getFacesFromPoints(&faces[4],projectedPoints,cuboidFacePoints5);
+    getFacesFromPoints(&faces[5],projectedPoints,cuboidFacePoints6);
+    
+
+    // really crummy way to display top 3 faces which isn't great with perpective
+    float avgz = (faces[0].zindex+faces[1].zindex+faces[2].zindex+faces[3].zindex+faces[4].zindex+faces[5].zindex)/6;
+    if(faces[0].zindex > avgz)
+        pd->graphics->fillPolygon(4,faces[0].points,kColorBlack,0);
+    if(faces[1].zindex > avgz)
+        pd->graphics->fillPolygon(4,faces[1].points,LCD_PATTERN_DITHER_GREY50,0);
+    if(faces[2].zindex > avgz)
+        pd->graphics->fillPolygon(4,faces[2].points,LCD_PATTERN_DITHER_GREY40,0);
+    if(faces[3].zindex > avgz)
+        pd->graphics->fillPolygon(4,faces[3].points,LCD_PATTERN_DITHER_GREY40,0);
+    if(faces[4].zindex > avgz)
+        pd->graphics->fillPolygon(4,faces[4].points,LCD_PATTERN_DITHER_GREY25,0);
+    if(faces[5].zindex > avgz)
+        pd->graphics->fillPolygon(4,faces[5].points,LCD_PATTERN_DITHER_GREY25,0);
+
+    // TODO: sort top 3 faces and draw them in asc order so while it will waste draws
+    // they will be overlapped by the nearest face and you wont see it
+    
 }
 
 

@@ -5,13 +5,17 @@
 #include "render.h"
 #include "camera.h"
 #include "cuboid.h"
-#include "face.h"
 #include "pvector.h"
 
 #define SCREEN_WIDTH 400
 #define SCREEN_HEIGHT 240
 #define SCREEN_WIDTH_CENTER SCREEN_WIDTH / 2
 #define SCREEN_HEIGHT_CENTER SCREEN_HEIGHT / 2
+
+typedef struct CuboidFace {
+    float zindex;
+    int points[12];
+} CuboidFace;
 
 void DrawBackground(PlaydateAPI* pd);
 
