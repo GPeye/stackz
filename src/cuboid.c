@@ -30,6 +30,13 @@ Cuboid* Cuboid_New(float x, float y, float z, float width, float height, float d
     return c;
 }
 
+/*
+maybe if I adjust the generated points to offset from center in the normalized space based off x,y,z in relation to screen size
+the subsequent procetion mapping will take that into account
+I will still need to offset/translate the object again after the projection
+
+*/
+
 void UpdateCuboidPoints(Cuboid *c)
 {
     float max = largest(c->width,c->height,c->depth);
@@ -43,8 +50,8 @@ void UpdateCuboidPoints(Cuboid *c)
     float tz = 0.5f*normalizedDepth;
 
     float temp[8][3] = {
-        {-tx, -ty, -tz}, {tx, -ty, -tz}, {tx, ty, -tz}, {-tx, ty, -tz},
-        {-tx, -ty, tz}, {tx, -ty, tz}, {tx, ty, tz}, {-tx, ty, tz}
+        {-tx-3.f, -ty, -tz}, {tx-3.f, -ty, -tz}, {tx-3.f, ty, -tz}, {-tx-3.f, ty, -tz},
+        {-tx-3.f, -ty, tz}, {tx-3.f, -ty, tz}, {tx-3.f, ty, tz}, {-tx-3.f, ty, tz}
     };
     memcpy(c->points, temp, sizeof(temp));
 }

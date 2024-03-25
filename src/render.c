@@ -134,6 +134,8 @@ static void _matmul(float *m2)
 	float z = 1.f / ( 2-m2[2] );
 	float one = z * m2[0];
 	float two = z * m2[1];
+    // float one = 1 * m2[0];
+	// float two = 1 * m2[1];
 
 	m2[0] = one;
 	m2[1] = two;
@@ -156,10 +158,14 @@ static void connectPoints(int i, int j, float projectedPoints[8][3])
 
 void DrawBackground(PlaydateAPI *pd)
 {
-    pd->graphics->clear(LCD_PATTERN_DITHER_GREY35);
-    pd->graphics->fillEllipse(-40, -60, 480, 360, 0.0, 0.0, LCD_PATTERN_DITHER_GREY30);
-    pd->graphics->fillEllipse(-30, -50, 460, 340, 0.0, 0.0, LCD_PATTERN_DITHER_GREY25);
-    pd->graphics->fillEllipse(-20, -40, 440, 320, 0.0, 0.0, LCD_PATTERN_DITHER_GREY20);
+    pd->graphics->clear(LCD_PATTERN_DITHER_GREY60);
+    pd->graphics->fillEllipse(-45, -65, 490, 370, 0.0, 0.0, LCD_PATTERN_DITHER_GREY50_ALT1);
+    pd->graphics->fillEllipse(-40, -60, 480, 360, 0.0, 0.0, LCD_PATTERN_DITHER_GREY45);
+    pd->graphics->fillEllipse(-35, -55, 470, 350, 0.0, 0.0, LCD_PATTERN_DITHER_GREY40);
+    pd->graphics->fillEllipse(-30, -50, 460, 340, 0.0, 0.0, LCD_PATTERN_DITHER_GREY35);
+    pd->graphics->fillEllipse(-25, -45, 450, 330, 0.0, 0.0, LCD_PATTERN_DITHER_GREY30);
+    pd->graphics->fillEllipse(-20, -40, 440, 320, 0.0, 0.0, LCD_PATTERN_DITHER_GREY25);
+    pd->graphics->fillEllipse(-15, -35, 430, 310, 0.0, 0.0, LCD_PATTERN_DITHER_GREY20);
     pd->graphics->fillEllipse(-10, -30, 420, 300, 0.0, 0.0, LCD_PATTERN_DITHER_GREY15);
     pd->graphics->fillEllipse(0, -20, 400, 280, 0.0, 0.0, LCD_PATTERN_DITHER_GREY10);
     pd->graphics->fillEllipse(10, -10, 380, 260, 0.0, 0.0, LCD_PATTERN_DITHER_GREY05);
@@ -250,7 +256,7 @@ void DrawCuboid(PlaydateAPI *_pd, Cuboid *cuboid, Camera *cam)
 
 		_scale(&pp, &cuboid->scaleFactor);
         
-		_translate(SCREEN_WIDTH_CENTER, SCREEN_HEIGHT_CENTER, 0.f, &pp);
+		_translate(SCREEN_WIDTH_CENTER+cuboid->x, SCREEN_HEIGHT_CENTER+cuboid->y, 0.f, &pp);
 		
 
 		//pd->graphics->drawEllipse(pp[0], pp[1], 3,3,3,0,0,kColorBlack);
