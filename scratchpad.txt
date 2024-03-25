@@ -1,0 +1,107 @@
+matrixMultipy( m1, m2, sizeof(m2), pPoints);
+for(int i=0;i<2;i++){
+    printf("{%f,%f,%f,%f}\r\n",pPoints[i][0],pPoints[i][1],pPoints[i][2],pPoints[i][3]);
+    //printf("{%f,%f}\r\n",pPoints[i][0],pPoints[i][1]);
+}
+
+// if(ellapsed == 0.0f)
+	// {
+	// 	//pd->system->resetElapsedTime();
+	// 	// pd->graphics->setFont(font);
+	// 	// pd->graphics->drawText("69", strlen("69"), kASCIIEncoding, x, y);
+	// 	// pd->sound->synth->playNote(projectile_sound, 700.f, 1.f, 0.1f, 0);
+	// }else{
+	// 	undrawCube(pd,(int)res,(int)res2);
+	// }
+	// ellapsed = pd->system->getElapsedTime();
+	
+	// res = sinf(ellapsed)*50;
+	// res2 = sinf(ellapsed)*45;
+	// //pd->system->logToConsole("%d",(int)res);
+
+	// draw1Cube(pd);
+	// drawCube(pd, (int)res, (int)res2);
+        
+	
+	// DrawCuboid(pd, mine, &cam);
+	// pd->system->drawFPS(0,0);
+
+	// mine->rotation_x=(pd->system->getCrankAngle() +90) * (3.14159 / 180);
+	// mine->rotation_y=pd->system->getCrankAngle() * (3.14159 / 180);
+	// mine->rotation_z=pd->system->getCrankAngle() * (3.14159 / 180);
+	// mine->rotation_x=(45.f *(3.14159 / 180));
+	// mine->rotation_y=(-35.f *(3.14159 / 180));
+	// mine->rotation_z=(30.f *(3.14159 / 180));
+	//mine->rotation_y=5.0f;
+	//mine->rotation_z=45.0f;
+	
+	// mine->x = pd->system->getCrankAngle() * (3.14159 / 180);
+	// mine->x = pd->system->getCrankAngle() * (3.14159 / 180);
+	//mine->depth= 100 + 10 * pd->system->getCrankAngle() * (3.14159 / 180);
+	
+	// float transMatrix[16];
+    // float tmp[16];
+	
+
+    // identityMatrix(transMatrix);
+    // rotateY(transMatrix, pd->system->getCrankAngle() * (3.14159 / 180), tmp);
+    // translate(tmp, 200, 120, 0, transMatrix);
+    // //rotateX(transMatrix, 0.f, tmp);
+    // //translate(tmp, 0, 50, 0, transMatrix);
+    // project(transMatrix, 2.0, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1, 100.0, tmp);
+
+	// float transPoints[8][4];
+    // for (int i = 0; i < 8; i++) {
+	// 	float tmpP[4];
+    //     transformPoint(cubeCoords[i], tmp, transPoints[i]);
+    // }
+
+	// for (int i = 0; i < 8; i++) {
+    //     for (int j = 0; j < 8; j++) {
+    //         if (i == j)
+    //             continue;
+	// 			pd->graphics->drawLine(
+	// 				(int)transPoints[i][0],
+	// 				(int)transPoints[i][1],
+	// 				(int)transPoints[j][0],
+	// 				(int)transPoints[j][1],
+	// 				3,
+	// 				kColorBlack);
+	// 			//connectPoints(i,j, transPoints);
+    //         // SDL_RenderDrawLine(renderer, 
+    //         //         transPoints[i][0], transPoints[i][1], 
+    //         //         transPoints[j][0], transPoints[j][1]);
+    //     }
+    // }
+
+	// int i;
+	// for (i = 0; i < 4; i++)
+	// {
+	// 	connectPoints(i, (i + 1) % 4, ppoints);
+	// 	connectPoints(i + 4, ((i + 1) % 4) + 4, ppoints);
+	// 	connectPoints(i, i + 4, ppoints);
+	// }
+
+
+	
+
+	// for (int i = 0; i < 2; i++) {
+	// 	for (int j = 0; j < 4; j++) {
+	// 		pPoints[i][j] = 0;
+	// 		for (int k = 0; k < 4; k++) {
+	// 			pPoints[i][j] += m2[i][k] * m1[j][k];
+	// 		}
+	// 	}
+	// }
+	
+
+	// for(int i=0;i<8;i++) {
+	// 		float pp[4] = {cpoints[i][0], cpoints[i][1], cpoints[i][2], cpoints[i][3]};
+	// 		float result[4];
+	// 		projectPoint(2.5, SCREEN_WIDTH / SCREEN_HEIGHT, 0.1, 100.0, pp, &result);
+	// 		_scaled(&result);
+	// 		ppoints[i][0] = result[0];
+	// 		ppoints[i][1] = result[1];
+	// 		ppoints[i][2] = result[2];
+	// 		_translate(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2,0,&ppoints[i]);
+	// }
