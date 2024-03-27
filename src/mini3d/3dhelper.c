@@ -108,6 +108,7 @@ Matrix3D *matrix_new() {
     Matrix3D* p = m3d_malloc(sizeof(Matrix3D));
 	
 	p->isIdentity = 0;
+    p->inverting = 0;
 	p->m[0][0] = 1.f;
 	p->m[0][1] = 0.f;
 	p->m[0][2] = 0.f;
@@ -118,13 +119,44 @@ Matrix3D *matrix_new() {
 	p->m[2][1] = 0.f;
 	p->m[2][2] = 1.f;
 	p->dx = p->dy = p->dz = 0;
-
-	p->inverting = Matrix3D_getDeterminant(p) < 0;
+    
+    return p;
 }
 
 Matrix3D *matrix_newRotation(float angle, float x, float y, float z)
 {
     Matrix3D *p = m3d_malloc(sizeof(Matrix3D));
+
+#undef M_PI
+#define M_PI 3.14159265358979323846f
+
+    float c = cosf(angle * M_PI / 180);
+    float s = sinf(angle * M_PI / 180);
+
+    float d = sqrtf(x * x + y * y + z * z);
+
+    x /= d;
+    y /= d;
+    z /= d;
+
+    p->isIdentity = 0;
+    p->inverting = 0;
+
+    p->m[0][0] = c + x * x * (1 - c);
+    p->m[0][1] = x * y * (1 - c) - z * s;
+    p->m[0][2] = x * z * (1 - c) + y * s;
+    p->m[1][0] = y * x * (1 - c) + z * s;
+    p->m[1][1] = c + y * y * (1 - c);
+    p->m[1][2] = y * z * (1 - c) - x * s;
+    p->m[2][0] = z * x * (1 - c) - y * s;
+    p->m[2][1] = z * y * (1 - c) + x * s;
+    p->m[2][2] = c + z * z * (1 - c);
+    p->dx = p->dy = p->dz = 0;
+    return p;
+}
+
+void *matrix_updateRotation(Matrix3D *p, float angle, float x, float y, float z)
+{
 
 #undef M_PI
 #define M_PI 3.14159265358979323846f

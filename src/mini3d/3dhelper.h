@@ -27,6 +27,8 @@ Matrix3D *matrix_new();
 
 Matrix3D *matrix_newRotation(float angle, float x, float y, float z);
 
+void *matrix_updateRotation(Matrix3D *p, float angle, float x, float y, float z);
+
 Matrix3D matrix_addTranslation(float x, float y, float z);
 
 void node_addTransform(Matrix3D *matrix);

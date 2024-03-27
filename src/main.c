@@ -41,6 +41,7 @@ Scene3DNode* cubenodesbottom2[10];
 float r = 0.f;
 float ellapsed=0.f;
 float res=0.f;
+Matrix3D *crankRot;
 
 #ifdef _WINDLL
 __declspec(dllexport)
@@ -84,7 +85,7 @@ int eventHandler(PlaydateAPI* playdate, PDSystemEvent event, uint32_t arg)
 		stackNode = Scene3DNode_newChild(rootNode);
 		activeNode = Scene3DNode_newChild(rootNode);
 
-		stackbox1 = shape_new_cuboid(1,0.2,1,-0.8f);
+		stackbox1 = shape_new_cuboid(1,0.2,1,-0.5f);
 
 		//Vector3D v = { 0,-0.38,0};
 		//Scene3DNode_addShapeWithOffset(stackNode, stackbox1, v);
@@ -104,7 +105,10 @@ int eventHandler(PlaydateAPI* playdate, PDSystemEvent event, uint32_t arg)
 		rot = matrix_newRotation(1.f,0.f,1.f,0.0f);
 		
 
+		crankRot = matrix_new();
 
+
+		pd->system->setPeripheralsEnabled(kAccelerometer);
 
 		// scene = scene_new();
 		// scene_setCameraOrigin(scene, 0.f, 0.f, 6.f);
@@ -154,6 +158,12 @@ void DrawBackground(PlaydateAPI *pd)
 float angle;
 float rotty = 0.f;
 Matrix3D tmm;
+float accelx;
+float accely;
+float accelz;
+float smoothing = 0.9f;
+float shiftx = 0.f;
+
 static int update(void* userdata)
 {
 	PlaydateAPI* pd = userdata;
@@ -174,14 +184,23 @@ static int update(void* userdata)
 	tmm = matrix_addTranslation(res,0,0);
 	Scene3DNode_setTransform(activeNode, &tmm);
 
+	pd->system->getAccelerometer(&accelx, &accely, &accelz);
+	//pd->system->logToConsole("Accel data: x(%f) y(%f) z(%f)\r", accelx, accely, accelz);
+	shiftx = smoothing * shiftx + (1-smoothing) * accelx;
+	//pd->system->logToConsole("shiftx: %f\r", shiftx);
 	//activebox1->points->x = res;
 
 	//activeNode->transform.dz = res;
 
 	angle = pd->system->getCrankChange();
 
-	Scene3DNode_addTransform(rootNode, matrix_newRotation(angle,0.f,0.f,1.f));
-	Scene3DNode_addTransform(rootNode, rot);
+	matrix_updateRotation(crankRot, shiftx*90,0.f,0.f,1.f);
+	Scene3DNode_setTransform(rootNode, crankRot);
+
+	//Scene3DNode_addTransform(rootNode, matrix_newRotation(angle,0.f,0.f,1.f));
+	//matrix_updateRotation(crankRot, angle,0.f,0.f,1.f);
+	//Scene3DNode_addTransform(rootNode, crankRot);
+	//Scene3DNode_addTransform(rootNode, rot);
 
 	//Scene3DNode_addTransform(stackNode, rot);
 	
@@ -199,6 +218,8 @@ static int update(void* userdata)
 	pd->graphics->markUpdatedRows(0, LCD_ROWS-1);
 
 	pd->system->drawFPS(0,0);
+
+	
 
 	return 1;
 }
