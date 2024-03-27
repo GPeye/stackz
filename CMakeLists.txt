@@ -35,12 +35,18 @@ file(GLOB SRC_GLOB
      "src/*.h"
 )
 
+file(GLOB MINI3D_GLOB
+     "src/mini3d/*.c"
+     "src/mini3d/*.h"
+)
+
 include_directories("src")
+include_directories("src/mini3d")
 
 if (TOOLCHAIN STREQUAL "armgcc")
-	add_executable(${PLAYDATE_GAME_DEVICE} ${SRC_GLOB})
+	add_executable(${PLAYDATE_GAME_DEVICE} ${SRC_GLOB} ${MINI3D_GLOB})
 else()
-	add_library(${PLAYDATE_GAME_NAME} SHARED ${SRC_GLOB} )
+	add_library(${PLAYDATE_GAME_NAME} SHARED ${SRC_GLOB} ${MINI3D_GLOB})
 endif()
 
 include(${SDK}/C_API/buildsupport/playdate_game.cmake)
