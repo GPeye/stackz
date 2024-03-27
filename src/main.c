@@ -135,6 +135,17 @@ int eventHandler(PlaydateAPI* playdate, PDSystemEvent event, uint32_t arg)
 	
 	return 0;
 }
+int isFlipped=0;
+void flipCamera() {
+	if(isFlipped == 0){
+		isFlipped = 1;
+		pd->system->logToConsole("flipped");
+		scene_setCameraUp(scene, 0.f, 5.f, 6.f, 5.f,0.f,0.f);
+	} else {
+		isFlipped = 0;
+		scene_setCameraUp(scene, 0.f, 5.f, 6.f, 0.f,-1.f,0.f);
+	}
+}
 
 #define TEXT_WIDTH 130
 #define TEXT_HEIGHT 16
@@ -166,7 +177,12 @@ float shiftx = 0.f;
 
 static int update(void* userdata)
 {
-	PlaydateAPI* pd = userdata;
+	PDButtons pushed;
+	pd->system->getButtonState(NULL, &pushed, NULL);
+	
+	if ( pushed & kButtonA )
+		flipCamera();
+		
 	DrawBackground(pd);
 
 	if(ellapsed == 0.0f)

@@ -20,6 +20,17 @@ void scene_setCameraOrigin(Scene3D *scene, float x, float y, float z)
     Scene3D_setCamera(scene, cameraOrigin, cameraLookat, cameraScale, cameraUp);
 }
 
+void scene_setCameraUp(Scene3D *scene, float x, float y, float z, float ux, float uy, float uz)
+{
+    cameraOrigin.x = x;
+    cameraOrigin.y = y;
+    cameraOrigin.z = z;
+    cameraUp.dx = ux;
+    cameraUp.dy = uy;
+    cameraUp.dz = uz;
+    Scene3D_setCamera(scene, cameraOrigin, cameraLookat, cameraScale, cameraUp);
+}
+
 void scene_setLight(Scene3D *scene, float x, float y, float z)
 {
     Scene3D_setGlobalLight(scene, Vector3DMake(x, y, z));

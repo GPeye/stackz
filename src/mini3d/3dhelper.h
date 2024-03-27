@@ -13,6 +13,8 @@ Scene3D *scene_new();
 
 void scene_setCameraOrigin(Scene3D *scene, float x, float y, float z);
 
+void scene_setCameraUp(Scene3D *scene, float x, float y, float z, float ux, float uy, float uz);
+
 void scene_setLight(Scene3D *scene, float x, float y, float z);
 
 Shape3D *shape_new();
