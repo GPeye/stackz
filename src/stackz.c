@@ -46,14 +46,14 @@ static void initDataValues() {
 }
 
 static void initActiveBox() {
-    activeBox = Game.StackzData.activeBox = shape_new_cuboid(1.f,0.2f,1.f,-0.1f);
+    activeBox = Game.StackzData.activeBox = shape_new_cuboid(1.f,0.25f,1.f,-0.1f);
 	Scene3DNode_addShape(activeNode, activeBox);
 }
 
 static void initStack() {
-    stackBoxes[0] = Game.StackzData.stackBoxes[0] = shape_new_cuboid(1.f,0.2f,1.f,-0.2f);
+    stackBoxes[0] = Game.StackzData.stackBoxes[0] = shape_new_cuboid(1.f,0.25f,1.f,-0.2f);
 	Scene3DNode_addShape(stackNode, stackBoxes[0]);
-    Game.StackzData.stackNodeMatrix = matrix_addTranslation(0,-0.38,0);
+    Game.StackzData.stackNodeMatrix = matrix_addTranslation(0,-0.5,0);
     stackNodeMatrix = &Game.StackzData.stackNodeMatrix;
     Scene3DNode_addTransform(stackNode, stackNodeMatrix);
 }
@@ -93,6 +93,48 @@ static void firstLoop() {
 	}
 }
 
+static void buttonUp() {
+    sys->logToConsole("Up pressed");
+}
+
+static void buttonDown() {
+    sys->logToConsole("Down pressed");
+}
+
+static void buttonLeft() {
+    sys->logToConsole("Left pressed");
+}
+
+static void buttonRight() {
+    sys->logToConsole("Right pressed");
+}
+
+static void buttonA() {
+    sys->logToConsole("A pressed");
+}
+
+static void buttonB() {
+    sys->logToConsole("B pressed");
+}
+
+static PDButtons pushed;
+static void handleButtonPush() {
+	sys->getButtonState(NULL, &pushed, NULL);
+	
+	if ( pushed & kButtonUp )
+		buttonUp();
+    if ( pushed & kButtonDown )
+		buttonDown();
+    if ( pushed & kButtonLeft )
+		buttonLeft();
+    if ( pushed & kButtonRight )
+		buttonRight();
+    if ( pushed & kButtonA )
+		buttonA();
+    if ( pushed & kButtonB )
+		buttonB();
+}
+
 static void setupOscillator() {
     Game.StackzData.ellapsed = sys->getElapsedTime();
     Game.StackzData.activeOscillator = sinf(Game.StackzData.ellapsed)*5.f;
@@ -120,8 +162,9 @@ static void rotateRootNodeWithCrank() {
 
 
 void updateStackz() {
-    drawBackground();
     firstLoop();
+    drawBackground();
+    handleButtonPush();
     
     setupOscillator();
 	OscillateActiveNode();
