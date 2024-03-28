@@ -347,3 +347,184 @@ static int update(void* userdata)
 		// 	Scene3DNode_addTransform(cubenodesbottom[i], &tm);
 		// 	Scene3DNode_addShape(cubenodesbottom2[i], shape);
 		// }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "pd_api.h"
+#include "mini3d.h"
+#include "3dmath.h"
+#include "shape.h"
+#include "scene.h"
+#include "3dhelper.h"
+#include "game.h"
+
+static int update(void* userdata);
+const char* fontpath = "num";
+LCDFont* font = NULL;
+PlaydateAPI *pd;
+
+SoundChannel* sound_effects = NULL;
+PDSynth* projectile_sound = NULL;
+Scene3D* scene;
+Shape3D* shape;
+Shape3D* stackbox1;
+Shape3D* activebox1;
+
+Scene3DNode* n;
+Scene3DNode* rootNode;
+Scene3DNode* stackNode;
+Scene3DNode* activeNode;
+
+Matrix3D* rot;
+
+float r = 0.f;
+Matrix3D *crankRot;
+
+#ifdef _WINDLL
+__declspec(dllexport)
+#endif
+int eventHandler(PlaydateAPI* playdate, PDSystemEvent event, uint32_t arg)
+{
+	(void)arg; // arg is currently only used for event = kEventKeyPressed
+
+	if ( event == kEventInit )
+	{
+		InitGame(playdate);
+		playdate->display->setRefreshRate(30);
+		playdate->system->setUpdateCallback(Update, NULL);
+		return 0;
+		pd = playdate;
+		const char* err;
+		font = pd->graphics->loadFont(fontpath, &err);
+		//pd->display->setRefreshRate(1);
+		
+		if ( font == NULL )
+			pd->system->error("%s:%i Couldn't load font %s: %s", __FILE__, __LINE__, fontpath, err);
+
+		// Note: If you set an update callback in the kEventInit handler, the system assumes the game is pure C and doesn't run any Lua code in the game
+		pd->system->setUpdateCallback(update, pd);
+
+		sound_effects = pd->sound->channel->newChannel();
+		projectile_sound = pd->sound->synth->newSynth();
+		pd->sound->channel->addSource(sound_effects, (SoundSource*)projectile_sound);
+		pd->sound->channel->setVolume(sound_effects, 1.f);
+
+		pd->sound->synth->setWaveform(projectile_sound, kWaveformSquare);
+		pd->sound->synth->setAttackTime(projectile_sound, 0.f);
+		pd->sound->synth->setDecayTime(projectile_sound, 0.f);
+		pd->sound->synth->setSustainLevel(projectile_sound, 1.f);
+		pd->sound->synth->setReleaseTime(projectile_sound, 0.1f);
+		pd->sound->synth->setVolume(projectile_sound, 1.f, 1.f);
+
+		mini3d_setRealloc(pd->system->realloc);
+
+		scene = scene_new();
+		scene_setCameraOrigin(scene, 0.f, 5.f, 6.f);
+		scene_setLight(scene, 0.2f, 0.8f, 0.4f);
+
+		rootNode = Scene3D_getRootNode(scene);
+		stackNode = Scene3DNode_newChild(rootNode);
+		activeNode = Scene3DNode_newChild(rootNode);
+
+		stackbox1 = shape_new_cuboid(1,0.2,1,-0.5f);
+
+		//Vector3D v = { 0,-0.38,0};
+		//Scene3DNode_addShapeWithOffset(stackNode, stackbox1, v);
+		Scene3DNode_addShape(stackNode, stackbox1);
+		Matrix3D tm = matrix_addTranslation(0,-0.38,0);
+		Scene3DNode_addTransform(stackNode, &tm);
+
+
+		activebox1 = shape_new_cuboid(1,0.2,1,-0.3f);
+		Scene3DNode_addShape(activeNode, activebox1);
+
+		//Matrix3D tm2 = matrix_addTranslation(0.f,-1.f,0.f);
+		//Scene3DNode_addTransform(rootNode, &tm2);
+
+		//scene_setCameraOrigin(scene, 0.f, 0.f, 6.f);
+		
+		rot = matrix_newRotation(1.f,0.f,1.f,0.0f);
+		
+
+		crankRot = matrix_new();
+
+
+		pd->system->setPeripheralsEnabled(kAccelerometer);
+	}
+	
+	return 0;
+}
+int isFlipped=0;
+void flipCamera() {
+	if(isFlipped == 0){
+		isFlipped = 1;
+		pd->system->logToConsole("flipped");
+		scene_setCameraUp(scene, 0.f, 5.f, 6.f, 5.f,0.f,0.f);
+	} else {
+		isFlipped = 0;
+		scene_setCameraUp(scene, 0.f, 5.f, 6.f, 0.f,-1.f,0.f);
+	}
+}
+
+#define TEXT_WIDTH 130
+#define TEXT_HEIGHT 16
+
+float angle;
+float rotty = 0.f;
+Matrix3D tmm;
+float accelx;
+float accely;
+float accelz;
+float smoothing = 0.9f;
+float shiftx = 0.f;
+
+static int update(void* userdata)
+{
+	PDButtons pushed;
+	pd->system->getButtonState(NULL, &pushed, NULL);
+	
+	if ( pushed & kButtonA )
+		flipCamera();
+
+	pd->system->getAccelerometer(&accelx, &accely, &accelz);
+	//pd->system->logToConsole("Accel data: x(%f) y(%f) z(%f)\r", accelx, accely, accelz);
+	shiftx = smoothing * shiftx + (1-smoothing) * accelx;
+	//pd->system->logToConsole("shiftx: %f\r", shiftx);
+	//activebox1->points->x = res;
+
+	//activeNode->transform.dz = res;
+
+	angle = pd->system->getCrankChange();
+
+	matrix_updateRotation(crankRot, shiftx*90,0.f,0.f,1.f);
+	Scene3DNode_setTransform(rootNode, crankRot);
+
+	//Scene3DNode_addTransform(rootNode, matrix_newRotation(angle,0.f,0.f,1.f));
+	//matrix_updateRotation(crankRot, angle,0.f,0.f,1.f);
+	//Scene3DNode_addTransform(rootNode, crankRot);
+	//Scene3DNode_addTransform(rootNode, rot);
+
+	//Scene3DNode_addTransform(stackNode, rot);
+	
+	
+	rotty +=0.1f;
+	// Matrix3D tm = matrix_addTranslation(res,0,0);
+	// Scene3DNode_setTransform(node2, &tm);
+	
+	// Scene3DNode_addTransform(n, rot);
+	
+	//pd->system->logToConsole("%f\r",node1->transform.dx);
+	
+
+	return 1;
+}
+

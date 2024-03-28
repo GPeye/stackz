@@ -7,6 +7,8 @@
         "vector": "c",
         "system_error": "c",
         "render.h": "c",
-        "3dmath.h": "c"
+        "3dmath.h": "c",
+        "shape.h": "c",
+        "stackz.h": "c"
     }
 }

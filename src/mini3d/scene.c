@@ -628,7 +628,7 @@ drawWireframe(Scene3D* scene, ShapeInstance* shape, uint8_t* bitmap, int rowstri
 {
 	int f;
 	RenderStyle style = shape->renderStyle;
-	uint8_t* color = patterns[32];
+	uint8_t* color = patterns[5];
 
 	for ( f = 0; f < shape->nFaces; ++f )
 	{
@@ -636,8 +636,8 @@ drawWireframe(Scene3D* scene, ShapeInstance* shape, uint8_t* bitmap, int rowstri
 
 		// If any vertex is behind the camera, skip it
 
-		if ( face->p1->z <= 0 || face->p2->z <= 0 || face->p3->z <= 0 || (face->p4 != NULL && face->p4->x <= 0) )
-			continue;
+		// if ( face->p1->z <= 0 || face->p2->z <= 0 || face->p3->z <= 0 || (face->p4 != NULL && face->p4->x <= 0) )
+		// 	continue;
 
 		float x1 = face->p1->x;
 		float y1 = face->p1->y;
