@@ -208,7 +208,7 @@ Scene3DNode_newChild(Scene3DNode* node)
 	return child;
 }
 
-static void
+void
 Scene3D_updateShapeInstance(Scene3D* scene, ShapeInstance* shape, Matrix3D xform, float colorBias, RenderStyle style)
 {
 	Shape3D* proto = shape->prototype;

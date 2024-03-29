@@ -64,28 +64,20 @@ Shape3D *shape_new_cuboid(float width, float height, float depth, float colorBia
                   point_new(width, -height, -depth),
                   colorBias);
 
-    // bottom
-    shape_addFace(shape,
-                  point_new(-width, -height, depth),
-                  point_new(-width, -height, -depth),
-                  point_new(width, -height, -depth),
-                  point_new(width, -height, depth),
-                  colorBias);
-
-    // right
-    shape_addFace(shape,
-                  point_new(width, -height, depth),
-                  point_new(width, -height, -depth),
-                  point_new(width, height, -depth),
-                  point_new(width, height, depth),
-                  colorBias);
-
     // top
     shape_addFace(shape,
                   point_new(width, height, depth),
                   point_new(width, height, -depth),
                   point_new(-width, height, -depth),
                   point_new(-width, height, depth),
+                  colorBias);
+
+    // bottom
+    shape_addFace(shape,
+                  point_new(-width, -height, depth),
+                  point_new(-width, -height, -depth),
+                  point_new(width, -height, -depth),
+                  point_new(width, -height, depth),
                   colorBias);
 
     // left
@@ -96,9 +88,65 @@ Shape3D *shape_new_cuboid(float width, float height, float depth, float colorBia
                   point_new(-width, -height, -depth),
                   colorBias);
 
+    // right
+    shape_addFace(shape,
+                  point_new(width, -height, depth),
+                  point_new(width, -height, -depth),
+                  point_new(width, height, -depth),
+                  point_new(width, height, depth),
+                  colorBias);
+
     Shape3D_setClosed(shape, 1);
 
     return shape;
+}
+
+void getxyz(Scene3DNode *node) {
+    Matrix3D xform = node->transform;
+    //Matrix3D id = identityMatrix;
+    
+    printf("00: %f\r\n",xform.m[0][0]);
+    printf("dx: %f\r\n",xform.dx);
+    //printf("02: %f\r",xform.m[0][2]);
+}
+
+void node_scaleBy(Scene3DNode *node, float sx, float sy, float sz) {
+	Matrix3D xform = node->transform;
+	xform.isIdentity = 0;
+	
+	xform.m[0][0] *= sx;
+	xform.m[1][0] *= sx;
+	xform.m[2][0] *= sx;
+	
+	xform.m[0][1] *= sy;
+	xform.m[1][1] *= sy;
+	xform.m[2][1] *= sy;
+	
+	xform.m[0][2] *= sz;
+	xform.m[1][2] *= sz;
+	xform.m[2][2] *= sz;
+	
+	xform.dx *= sx;
+	xform.dy *= sy;
+	xform.dz *= sz;
+	
+	xform.inverting = (sx * sy * sz < 0);
+
+	Scene3DNode_setTransform(node, &xform);
+}
+
+void shrinkCuboidWidth(Scene3DNode *node, float amount) {
+    ShapeInstance* nodeshape = node->shapes;
+    Shape3D* shape = nodeshape->prototype;
+    FaceInstance* face = &nodeshape->faces[front];
+    //face->p1 = &nodeshape->points[shape->faces[i].p1]
+    //Face3D* face = &proto->faces[0];
+    Point3D *point = &nodeshape->points[shape->faces[front].p1];
+    Face3D *fff = &shape->faces[front];
+    Point3D *ppp = &fff->p1;
+    
+    printf("point: %f", ppp->x);
+    printf("point: %f", ppp->y);
 }
 
 Point3D *point_new(float x, float y, float z)
@@ -201,6 +249,16 @@ Matrix3D matrix_addTranslation(float x, float y, float z) {
     Matrix3D xform = identityMatrix;
     //Matrix3D* l = matrix_new();
     xform.isIdentity = 0;
+    xform.dx = x;
+    xform.dy = y;
+    xform.dz = z;
+    return xform;
+}
+
+Matrix3D matrix_addIdentityTranslation(float x, float y, float z) {
+    Matrix3D xform = identityMatrix;
+    //Matrix3D* l = matrix_new();
+    xform.isIdentity = 1;
     xform.dx = x;
     xform.dy = y;
     xform.dz = z;

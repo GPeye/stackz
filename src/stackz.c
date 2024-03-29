@@ -6,6 +6,7 @@
 #include "shape.h"
 #include "scene.h"
 #include "3dhelper.h"
+#include "float.h"
 
 #define BORDER
 
@@ -15,10 +16,17 @@ static Scene3DNode *activeNode;
 static Scene3DNode *stackNode;
 
 static Shape3D *activeBox;
-static Shape3D *stackBoxes[100];
+static Shape3D *stackBoxes[STACKMAX];
 
 static Matrix3D *stackNodeMatrix;
+static RenderStyle globalStyle;
 
+static float activeBoxWidth = 1.f;
+static float activeBoxDepth = 1.f;
+static float activeBoxX = 0.f;
+static float activeBoxZ = 0.f;
+static float targetBoxWidth = 1.f;
+static float targetBoxDepth = 1.f;
 
 static void initSceneAndCamera() {
     scene = Game.StackzData.scene = scene_new();
@@ -33,6 +41,7 @@ static void initNodes() {
 #ifdef BORDER
     RenderStyle style = Scene3DNode_getRenderStyle(rootNode);
     style |= kRenderWireframe;
+    globalStyle = style;
     Scene3DNode_setRenderStyle(rootNode,style);
 #endif
 }
@@ -51,8 +60,34 @@ static void initActiveBox() {
 }
 
 static void initStack() {
-    stackBoxes[0] = Game.StackzData.stackBoxes[0] = shape_new_cuboid(1.f,0.25f,1.f,-0.2f);
-	Scene3DNode_addShape(stackNode, stackBoxes[0]);
+    // stackBoxes[Game.StackzData.stackBoxIndex] = Game.StackzData.stackBoxes[Game.StackzData.stackBoxIndex] = shape_new_cuboid(1.f,0.25f,1.f,-0.2f);
+	// Scene3DNode_addShape(stackNode, stackBoxes[Game.StackzData.stackBoxIndex]);
+    // Game.StackzData.stackNodeMatrix = matrix_addTranslation(0,-0.5,0);
+    // stackNodeMatrix = &Game.StackzData.stackNodeMatrix;
+    // Scene3DNode_addTransform(stackNode, stackNodeMatrix);
+    // Game.StackzData.stackBoxIndex++;
+    if(Game.StackzData.lastNode == NULL) {
+        sys->logToConsole("List is empty");
+        return;
+    }
+    if(Game.StackzData.lastNode->next != Game.StackzData.firstNode) {
+        sys->logToConsole("List is not circular empty");
+        return;
+    }
+    struct Node* ptr = Game.StackzData.firstNode;
+    do {
+        //create shape
+        ptr->scene3DNode = Game.StackzData.stackNode = Scene3DNode_newChild(stackNode);
+        Shape3D *shape = shape_new_cuboid(1.f,0.25f,1.f,0.0f);
+        Scene3DNode_addShape(ptr->scene3DNode, shape);
+        Scene3DNode_setVisible(ptr->scene3DNode, 0);
+
+        ptr = ptr->next;
+    } while (ptr != Game.StackzData.lastNode->next);
+    Game.StackzData.currentNode = Game.StackzData.firstNode;
+
+    Scene3DNode_setVisible(ptr->scene3DNode, 1);
+    // Scene3DNode_addShape(stackNode, Game.StackzData.currentBox->stackBox);
     Game.StackzData.stackNodeMatrix = matrix_addTranslation(0,-0.5,0);
     stackNodeMatrix = &Game.StackzData.stackNodeMatrix;
     Scene3DNode_addTransform(stackNode, stackNodeMatrix);
@@ -65,6 +100,40 @@ void InitStackzSceneData() {
     initNodes();
     initActiveBox();
     initStack();
+}
+
+float getColorFromIndex(int index) {
+    float adjustedIndex = index * 0.2f;
+    return (sinf((float)adjustedIndex)*0.5f) - 0.3f;
+    int x = FLT_MAX;
+}
+
+Vector3D v = { 0.f,0.f,0.f};
+float addv = 0;
+static void addBoxToStack() {
+    Game.StackzData.currentNode = Game.StackzData.currentNode->next;
+    Game.StackzData.currentNode->scene3DNode->isVisible=1;
+    Game.StackzData.currentNode->scene3DNode->colorBias = getColorFromIndex(Game.StackzData.stackBoxIndex);
+    addv += 0.5f;
+    Game.StackzData.stackNodeMatrix = matrix_addTranslation(0.f,addv,0.f);
+    Scene3DNode_setTransform(Game.StackzData.currentNode->scene3DNode, stackNodeMatrix);
+    node_scaleBy(Game.StackzData.currentNode->scene3DNode, getColorFromIndex(Game.StackzData.stackBoxIndex)+1.5f,1.f,1.f);
+    Game.StackzData.stackNodeMatrix = matrix_addTranslation(0.f,-0.5f,0.f);
+    Scene3DNode_addTransform(stackNode, stackNodeMatrix);
+    // Game.StackzData.currentBox = Game.StackzData.currentBox->next;
+    // Game.StackzData.currentBox->stackBox->colorBias = getColorFromIndex(Game.StackzData.stackBoxIndex);
+    // //Game.StackzData.currentBox->stackBox
+    // Game.StackzData.currentBox->stackBox->points->y = 0;
+    // //Scene3D_updateShapeInstance(scene, Game.StackzData.currentBox->stackBox, identityMatrix, getColorFromIndex(Game.StackzData.stackBoxIndex), globalStyle);
+    // //stackBoxes[Game.StackzData.stackBoxIndex] = Game.StackzData.stackBoxes[Game.StackzData.stackBoxIndex] = shape_new_cuboid(1.f,0.25f,1.f,-0.8f);
+    // //stackBoxes[Game.StackzData.stackBoxIndex] = Game.StackzData.stackBoxes[Game.StackzData.stackBoxIndex] = shape_new_cuboid(1.f,0.25f,1.f,getColorFromIndex(Game.StackzData.stackBoxIndex));
+    // //v.dy += 0.5f;
+    // //Scene3DNode_addShapeWithOffset(stackNode, stackBoxes[Game.StackzData.stackBoxIndex], v);
+	// //Scene3DNode_addShape(stackNode, stackBoxes[Game.StackzData.stackBoxIndex]);
+    // Game.StackzData.stackNodeMatrix = matrix_addTranslation(0,-0.5,0);
+    // stackNodeMatrix = &Game.StackzData.stackNodeMatrix;
+    // Scene3DNode_addTransform(stackNode, stackNodeMatrix);
+    Game.StackzData.stackBoxIndex++;
 }
 
 static void drawBackground()
@@ -110,11 +179,26 @@ static void buttonRight() {
 }
 
 static void buttonA() {
+    addBoxToStack();
     sys->logToConsole("A pressed");
 }
 
 static void buttonB() {
     sys->logToConsole("B pressed");
+    if(Game.StackzData.activeOscillator < 0.1f && Game.StackzData.activeOscillator > -0.1f){
+        sys->logToConsole("perfect\r");
+    }else{
+        if(Game.StackzData.activeOscillator > 2.f || Game.StackzData.activeOscillator < -2.f){
+            sys->logToConsole("missed\r");
+        } else {
+            sys->logToConsole("hit\r");
+            Game.StackzData.score++;
+            float difference = Game.StackzData.activeOscillator;
+            sys->logToConsole("difference: %f\r",difference);
+        }
+
+    }
+
 }
 
 static PDButtons pushed;
@@ -137,7 +221,7 @@ static void handleButtonPush() {
 
 static void setupOscillator() {
     Game.StackzData.ellapsed = sys->getElapsedTime();
-    Game.StackzData.activeOscillator = sinf(Game.StackzData.ellapsed)*5.f;
+    Game.StackzData.activeOscillator = sinf(Game.StackzData.ellapsed)*3.f;
 }
 
 static void OscillateActiveNode() {
@@ -149,9 +233,17 @@ static void draw() {
     Scene3D_draw(Game.StackzData.scene, gfx->getFrame(), LCD_ROWSIZE);
 	gfx->markUpdatedRows(0, LCD_ROWS-1);
 }
-
+static char* score;
+static int ww = 0;
+int scorewidth = 0;
 static void displayScore() {
-    gfx->drawText("0", strlen("0"), kASCIIEncoding, SCREEN_WIDTH/2.f-10.f, 15.f);
+    ww = sys->formatString(&score,"%d",Game.StackzData.score);
+     //= sprintf("%d", Game.StackzData.score);
+    scorewidth = gfx->getTextWidth(Game.font, score, strlen(score),kASCIIEncoding,0);
+    gfx->drawText(score, strlen(score), kASCIIEncoding, SCREEN_WIDTH/2-(scorewidth/2), 15);
+    
+    sys->realloc(score, 0);
+    //gfx->drawText("0", strlen("0"), kASCIIEncoding, SCREEN_WIDTH/2, 15);
 }
 
 static void rotateRootNodeWithCrank() {
@@ -172,6 +264,9 @@ void updateStackz() {
     rotateRootNodeWithCrank();
 
     displayScore();
+
+    //getxyz(Game.StackzData.activeNode);
+    //sys->logToConsole("centerx: %f",);
     
     draw();
 }

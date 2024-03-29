@@ -18,6 +18,26 @@ static void initFont() {
     gfx->setFont(Game.font);
 }
 
+static void initCircularLinkedListOfStack() {
+    struct Node* temp;
+    for(int i=0;i<STACKMAX;i++){
+        struct Node* node;
+        node = (struct Node*)malloc(sizeof(struct Node));
+        if(i==0) {
+            Game.StackzData.firstNode = node;
+            temp = node;
+        } else {
+            temp->next = node;
+            temp = node;
+        }
+        if(i==STACKMAX-1) {
+            sys->logToConsole("setting last box next?");
+            Game.StackzData.lastNode = node;
+            Game.StackzData.lastNode->next = Game.StackzData.firstNode;
+        } 
+    }
+}
+
 void InitGame(PlaydateAPI *pd)
 {
     pd->display->setRefreshRate(30);
@@ -30,6 +50,8 @@ void InitGame(PlaydateAPI *pd)
     sound = Game.gPd->sound;
 
     initFont();
+
+    initCircularLinkedListOfStack();
 
     InitStackzSceneData();
 }

@@ -11,6 +11,8 @@
 #define SCREEN_WIDTH 400
 #define SCREEN_HEIGHT 240
 
+#define STACKMAX 15
+
 extern const struct playdate_graphics *gfx;
 extern const struct playdate_sys *sys;
 extern const struct playdate_display *display;
@@ -25,6 +27,16 @@ typedef enum
     State_Scoreboard,
     State_Tutorial
 } GameScene;
+
+struct Node {
+    Scene3DNode *scene3DNode;
+    struct Node *next;
+};
+
+struct BoxSize {
+    float width;
+    float depth;
+};
 
 typedef struct
 {
@@ -43,13 +55,17 @@ typedef struct
         Scene3DNode *stackNode;
         Scene3DNode *activeNode;
 
-        Shape3D *stackBoxes[100];
+        Shape3D *stackBoxes[STACKMAX];
         Shape3D *activeBox;
+        struct Node *firstNode;
+        struct Node *lastNode;
+        struct Node *currentNode;
 
         Matrix3D activeNodeMatrix;
         Matrix3D stackNodeMatrix;
         Matrix3D *crankMatrix;
 
+        int stackBoxIndex;
         float ellapsed;
         float crankChange;
         float activeOscillator;

@@ -9,6 +9,17 @@
 #include "shape.h"
 #include "scene.h"
 
+#define NUMCUBOIDFACES 6
+
+enum CuboidFace {
+    front,
+    back,
+    top,
+    bottom,
+    left,
+    right,
+};
+
 Scene3D *scene_new();
 
 void scene_setCameraOrigin(Scene3D *scene, float x, float y, float z);
@@ -20,6 +31,10 @@ void scene_setLight(Scene3D *scene, float x, float y, float z);
 Shape3D *shape_new();
 
 Shape3D *shape_new_cuboid(float width, float height, float depth, float colorBias);
+
+void shrinkCuboidWidth(Scene3DNode *node, float amount);
+
+void node_scaleBy(Scene3DNode *node, float sx, float sy, float sz);
 
 Point3D *point_new(float x, float y, float z);
 
@@ -33,6 +48,10 @@ void *matrix_updateRotation(Matrix3D *p, float angle, float x, float y, float z)
 
 Matrix3D matrix_addTranslation(float x, float y, float z);
 
+Matrix3D matrix_addIdentityTranslation(float x, float y, float z);
+
 void node_addTransform(Matrix3D *matrix);
+
+void getxyz(Scene3DNode *node);
 
 #endif

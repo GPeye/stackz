@@ -12,6 +12,7 @@
 #include <stdint.h>
 #include "3dmath.h"
 #include "shape.h"
+#include "scene.h"
 
 struct FaceInstance
 {
@@ -130,6 +131,7 @@ Scene3DNode* Scene3D_getRootNode(Scene3D* scene);
 void Scene3D_draw(Scene3D* scene, uint8_t* buffer, int rowstride);
 void Scene3D_drawNode(Scene3D* scene, Scene3DNode* node, uint8_t* bitmap, int rowstride);
 void Scene3D_setCenter(Scene3D* scene, float x, float y);
+void Scene3D_updateShapeInstance(Scene3D* scene, ShapeInstance* shape, Matrix3D xform, float colorBias, RenderStyle style);
 
 #if ENABLE_Z_BUFFER
 void Scene3D_getZMask(Scene3D* scene, uint8_t* zmask, int rowstride);
