@@ -43,7 +43,7 @@ typedef struct
     PlaydateAPI *gPd;
     GameScene gState;
 
-    const char* fontpath;;
+    const char* fontpath;
     LCDFont* font;
 
     struct

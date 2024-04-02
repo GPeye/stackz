@@ -36,6 +36,10 @@ void shrinkCuboidWidth(Scene3DNode *node, float amount);
 
 void node_scaleBy(Scene3DNode *node, float sx, float sy, float sz);
 
+void node_resetTranform(Scene3DNode* node);
+
+void matrix_scaleByAndAddTranslation(Scene3DNode* node, float sx, float sy, float sz, float x, float y, float z);
+
 Point3D *point_new(float x, float y, float z);
 
 Shape3D *shape_addFace(Shape3D *shape, Point3D *a, Point3D *b, Point3D *c, Point3D *d, float colorBias);

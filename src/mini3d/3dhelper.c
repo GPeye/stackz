@@ -135,6 +135,39 @@ void node_scaleBy(Scene3DNode *node, float sx, float sy, float sz) {
 	Scene3DNode_setTransform(node, &xform);
 }
 
+void node_resetTranform(Scene3DNode* node) {
+    Matrix3D xform = identityMatrix;
+    xform.isIdentity = 0;
+    Scene3DNode_setTransform(node, &xform);
+}
+
+void matrix_scaleByAndAddTranslation(Scene3DNode* node, float sx, float sy, float sz, float x, float y, float z) {
+    Matrix3D xform = node->transform;
+    xform.isIdentity = 0;
+
+    xform.m[0][0] *= sx;
+    xform.m[1][0] *= sx;
+    xform.m[2][0] *= sx;
+
+    xform.m[0][1] *= sy;
+    xform.m[1][1] *= sy;
+    xform.m[2][1] *= sy;
+
+    xform.m[0][2] *= sz;
+    xform.m[1][2] *= sz;
+    xform.m[2][2] *= sz;
+
+    xform.dx = x;// * sx;
+    xform.dy = y;// *sy;
+    xform.dz = z;// *sz;
+
+    xform.inverting = (sx * sy * sz < 0);
+    //xform = Matrix3D_multiply(xform, Matrix3DMakeTranslate(x, y, z));
+    //;//  matrix_addTranslation(x, y, z);
+
+    Scene3DNode_setTransform(node, &xform);
+}
+
 void shrinkCuboidWidth(Scene3DNode *node, float amount) {
     ShapeInstance* nodeshape = node->shapes;
     Shape3D* shape = nodeshape->prototype;
