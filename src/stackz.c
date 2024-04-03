@@ -32,7 +32,8 @@ static float targetBoxWidth = 1.f;
 static float targetBoxDepth = 1.f;
 static float targetBoxX = 0.f;
 static float targetBoxZ = 0.f;
-static float targetBoxScale = 1.f;
+static float targetBoxXScale = 1.f;
+static float targetBoxZScale = 1.f;
 static int isFirstLoop = 0;
 static int direction = 0;
 
@@ -89,9 +90,10 @@ static void addBoxToStack(float x, float z, float scalex, float scalez) {
     Game.StackzData.stackBoxIndex++;
 }
 
-static void updateActiveBlockSize(float scalex, float scalez) {
+static void updateActiveBlockSize(float x, float z, float scalex, float scalez) {
     node_resetTranform(activeNodeSubnode);
-    node_scaleBy(activeNodeSubnode, scalex, 1.f, scalez);
+    matrix_scaleByAndAddTranslation(activeNodeSubnode, scalex, 1.f, scalez, x, 0.f, z);
+    //node_scaleBy(activeNodeSubnode, scalex, 1.f, scalez);
 }
 
 static void initSceneAndCamera() {
@@ -178,7 +180,8 @@ static void resetGame() {
     targetBoxWidth = 1.f;
     targetBoxX = 0.f;
     targetBoxZ = 0.f;
-    targetBoxScale = 1.f;
+    targetBoxXScale = 1.f;
+    targetBoxZScale = 1.f;
     node_resetTranform(activeNodeSubnode);
     resetStack();
 }
@@ -251,49 +254,55 @@ static void buttonB() {
     sys->logToConsole("B pressed");
     if (direction == 0) {
         if (Game.StackzData.activeOscillator > (targetBoxDepth * 2.f) + targetBoxX || Game.StackzData.activeOscillator < -(targetBoxDepth*2.f)+targetBoxX) {
-            sys->logToConsole("miss");
-            sys->logToConsole("osc: %f, targetdepth: %f", Game.StackzData.activeOscillator, targetBoxDepth);
             resetGame();
             return;
         }
         sys->logToConsole("hit");
         Game.StackzData.score++;
 
-        float difference = fabsf(fabsf(Game.StackzData.activeOscillator) - fabsf(targetBoxX));
-        //float difference = fabsf(Game.StackzData.activeOscillator);
+        float difference = Game.StackzData.activeOscillator - targetBoxX;
+        if (difference < 0.f)
+            difference = targetBoxX - Game.StackzData.activeOscillator;
 
         float pdiff = (difference / (targetBoxDepth * 2.f));
         float scale = 1.f - pdiff;
-        //float scale = targetBoxDepth - (targetBoxDepth * (difference / 2.f));// / targetBoxDepth;
-        //float scale = (targetBoxDepth - (difference / (targetBoxDepth * 2.f))) / targetBoxDepth;
-        //sys->logToConsole("diff: %f, scale:%f, depth: %f", difference, scale, targetBoxDepth);
-        targetBoxScale *= scale;
-        addBoxToStack((Game.StackzData.activeOscillator / 2.f)+(targetBoxX/2.f), 0.f, targetBoxScale, 1.f);
-        //addBoxToStack(0.f, 0.f, targetBoxScale, 1.f);
+        targetBoxXScale *= scale;
+        targetBoxX = (Game.StackzData.activeOscillator / 2.f) + (targetBoxX / 2.f);
 
-        targetBoxDepth -= (difference/2);
-        sys->logToConsole("targetboxdepth: %f", targetBoxDepth);
-        targetBoxX = (Game.StackzData.activeOscillator/2.f) + (targetBoxX / 2.f);
+        addBoxToStack(targetBoxX, -targetBoxZ, targetBoxXScale, targetBoxZScale);
 
-        updateActiveBlockSize(targetBoxScale, 1.f);
+        targetBoxDepth -= (difference/2.f);
+        
+        updateActiveBlockSize(targetBoxX, -targetBoxZ, targetBoxXScale, targetBoxZScale);
 
-        // We are overlapping
-        // Determine how much we are overlapping
-        // update the active block
-        // update the targetblock model
-        // push updated block to stack
     }
     else {
         if (Game.StackzData.activeOscillator > (targetBoxWidth * 2.f) + targetBoxZ || Game.StackzData.activeOscillator < -(targetBoxWidth * 2.f) + targetBoxZ) {
             resetGame();
             return;
         }
+        sys->logToConsole("hit");
+        Game.StackzData.score++;
+
+        float difference = Game.StackzData.activeOscillator - targetBoxZ;
+        if (difference < 0.f)
+            difference = targetBoxZ - Game.StackzData.activeOscillator;
+        float pdiff = (difference / (targetBoxDepth * 2.f));
+        float scale = 1.f - pdiff;
+        targetBoxZScale *= scale;
+        targetBoxZ = (Game.StackzData.activeOscillator / 2.f) + (targetBoxZ / 2.f);
+
+        addBoxToStack(targetBoxX, -targetBoxZ, targetBoxXScale, targetBoxZScale);
+
+        targetBoxWidth -= (difference / 2.f);
+
+        updateActiveBlockSize(targetBoxX, -targetBoxZ, targetBoxXScale, targetBoxZScale);
     }
 
-    /*if (direction == 0)
+    if (direction == 0)
         direction = 1;
     else
-        direction = 0;*/
+        direction = 0;
     sys->resetElapsedTime();
     
     return;
@@ -350,7 +359,7 @@ static void handleButtonPush() {
 }
 
 static void setupOscillator() {
-    Game.StackzData.ellapsed = (sys->getElapsedTime() +2.f) * 0.75f;
+    Game.StackzData.ellapsed = (sys->getElapsedTime() +2.f) * 1.f;
     Game.StackzData.activeOscillator = sinf(Game.StackzData.ellapsed)*3.f;
 }
 
