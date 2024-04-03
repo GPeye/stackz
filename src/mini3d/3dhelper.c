@@ -70,7 +70,7 @@ Shape3D *shape_new_cuboid(float width, float height, float depth, float colorBia
                   point_new(width, height, -depth),
                   point_new(-width, height, -depth),
                   point_new(-width, height, depth),
-                  colorBias);
+                  colorBias + 0.5f);
 
     // bottom
     shape_addFace(shape,

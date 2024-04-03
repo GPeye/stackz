@@ -1,7 +1,11 @@
 Archive member included to satisfy reference by file (symbol)
 
+c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldf3.o)
+                              CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj (__aeabi_dmul)
 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
                               CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj (__aeabi_f2d)
+c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+                              CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj (__aeabi_d2f)
 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-malloc.o)
                               CMakeFiles\stackz_DEVICE.dir\src\game.c.obj (malloc)
 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-memset.o)
@@ -96,8 +100,6 @@ c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-1
                               c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-abort.o) (raise)
 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-signalr.o)
                               c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-signal.o) (_kill_r)
-c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldf3.o)
-                              c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-vfprintf.o) (__aeabi_dmul)
 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
                               c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-dtoa.o) (__aeabi_ddiv)
 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
@@ -143,7 +145,7 @@ Discarded input sections
  .data          0x00000000        0x0 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
  .bss           0x00000000        0x0 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
  .text.getColorFromIndex
-                0x00000000       0x30 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x00000000       0x34 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
  .bss.v         0x00000000        0xc CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
  .data.ALL_PATTERNS
                 0x00000000       0xac CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
@@ -223,6 +225,8 @@ Discarded input sections
  .rodata.getxyz.str1.4
                 0x00000000       0x15 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
  .text.getxyz   0x00000000       0x34 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+ .text.node_scaleBy
+                0x00000000       0xf0 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
  .rodata.shrinkCuboidWidth.str1.4
                 0x00000000        0xa CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
  .text.shrinkCuboidWidth
@@ -278,8 +282,16 @@ Discarded input sections
  .text._realloc_r
                 0x00000000       0x10 CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
  .text._free_r  0x00000000       0x14 CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
+ .text          0x00000000      0x254 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldf3.o)
+ .data          0x00000000        0x0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldf3.o)
+ .bss           0x00000000        0x0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldf3.o)
+ .debug_frame   0x00000000       0x30 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldf3.o)
+ .ARM.attributes
+                0x00000000       0x1e c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldf3.o)
  .data          0x00000000        0x0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
  .bss           0x00000000        0x0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .data          0x00000000        0x0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+ .bss           0x00000000        0x0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
  .text          0x00000000        0x0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-malloc.o)
  .data          0x00000000        0x0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-malloc.o)
  .bss           0x00000000        0x0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-malloc.o)
@@ -798,18 +810,8 @@ Discarded input sections
  .debug_frame   0x00000000       0x3c c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-signalr.o)
  .ARM.attributes
                 0x00000000       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-signalr.o)
- .text          0x00000000      0x254 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldf3.o)
- .data          0x00000000        0x0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldf3.o)
- .bss           0x00000000        0x0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldf3.o)
- .debug_frame   0x00000000       0x30 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldf3.o)
- .ARM.attributes
-                0x00000000       0x1e c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldf3.o)
- .text          0x00000000      0x424 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
  .data          0x00000000        0x0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
  .bss           0x00000000        0x0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
- .debug_frame   0x00000000       0x50 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
- .ARM.attributes
-                0x00000000       0x1e c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
  .text          0x00000000      0x110 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
  .data          0x00000000        0x0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
  .bss           0x00000000        0x0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
@@ -902,7 +904,7 @@ LOAD c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-e
 LOAD c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
 END GROUP
 
-.text           0x00000000     0x5548
+.text           0x00000000     0x5dc0
  *(.text)
  .text          0x00000000      0x378 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
                 0x00000000                __aeabi_drsub
@@ -920,232 +922,248 @@ END GROUP
                 0x0000030c                __aeabi_ul2d
                 0x0000031c                __floatdidf
                 0x0000031c                __aeabi_l2d
- *fill*         0x00000378        0x8 
- .text          0x00000380       0xdc c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-strlen.o)
-                0x00000380                strlen
+ .text          0x00000378       0xa0 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+                0x00000378                __truncdfsf2
+                0x00000378                __aeabi_d2f
+ *fill*         0x00000418       0x28 
+ .text          0x00000440       0xdc c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-strlen.o)
+                0x00000440                strlen
+ .text          0x0000051c      0x424 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
+                0x0000051c                __aeabi_dmul
+                0x0000051c                __muldf3
+                0x00000770                __divdf3
+                0x00000770                __aeabi_ddiv
  *(.text.*)
- *fill*         0x0000045c        0x4 
  .text.InitGame
-                0x00000460       0xe0 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
-                0x00000460                InitGame
- .text.Update   0x00000540       0x28 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
-                0x00000540                Update
- *fill*         0x00000568        0x8 
+                0x00000940       0xe0 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
+                0x00000940                InitGame
+ .text.Update   0x00000a20       0x28 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
+                0x00000a20                Update
+ *fill*         0x00000a48        0x8 
  .text.eventHandler
-                0x00000570       0x24 CMakeFiles\stackz_DEVICE.dir\src\main.c.obj
-                0x00000570                eventHandler
- *fill*         0x00000594        0xc 
+                0x00000a50       0x24 CMakeFiles\stackz_DEVICE.dir\src\main.c.obj
+                0x00000a50                eventHandler
+ *fill*         0x00000a74        0xc 
+ .text.addBoxToStack
+                0x00000a80      0x100 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .text.resetGame
+                0x00000b80       0x9c CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ *fill*         0x00000c1c        0x4 
  .text.InitStackzSceneData
-                0x000005a0      0x19c CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                0x000005a0                InitStackzSceneData
- *fill*         0x0000073c        0x4 
+                0x00000c20      0x20c CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x00000c20                InitStackzSceneData
+ *fill*         0x00000e2c        0x4 
  .text.updateStackz
-                0x00000740      0x54c CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                0x00000740                updateStackz
- *fill*         0x00000c8c        0x4 
+                0x00000e30      0x6c4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x00000e30                updateStackz
+ *fill*         0x000014f4        0xc 
  .text.scene_new
-                0x00000c90       0x1c CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
-                0x00000c90                scene_new
- *fill*         0x00000cac        0x4 
+                0x00001500       0x1c CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+                0x00001500                scene_new
+ *fill*         0x0000151c        0x4 
  .text.scene_setCameraOrigin
-                0x00000cb0       0x40 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
-                0x00000cb0                scene_setCameraOrigin
+                0x00001520       0x40 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+                0x00001520                scene_setCameraOrigin
  .text.scene_setLight
-                0x00000cf0        0x8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
-                0x00000cf0                scene_setLight
- *fill*         0x00000cf8        0x8 
+                0x00001560        0x8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+                0x00001560                scene_setLight
+ *fill*         0x00001568        0x8 
  .text.shape_new_cuboid
-                0x00000d00      0x2c4 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
-                0x00000d00                shape_new_cuboid
- *fill*         0x00000fc4        0xc 
- .text.node_scaleBy
-                0x00000fd0       0xf0 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
-                0x00000fd0                node_scaleBy
+                0x00001570      0x2c8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+                0x00001570                shape_new_cuboid
+ *fill*         0x00001838        0x8 
+ .text.node_resetTranform
+                0x00001840       0x40 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+                0x00001840                node_resetTranform
+ .text.matrix_scaleByAndAddTranslation
+                0x00001880       0xd8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+                0x00001880                matrix_scaleByAndAddTranslation
+ *fill*         0x00001958        0x8 
  .text.matrix_new
-                0x000010c0       0x3c CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
-                0x000010c0                matrix_new
- *fill*         0x000010fc        0x4 
+                0x00001960       0x3c CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+                0x00001960                matrix_new
+ *fill*         0x0000199c        0x4 
  .text.matrix_updateRotation
-                0x00001100       0xfc CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
-                0x00001100                matrix_updateRotation
- *fill*         0x000011fc        0x4 
+                0x000019a0       0xfc CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+                0x000019a0                matrix_updateRotation
+ *fill*         0x00001a9c        0x4 
  .text.matrix_addTranslation
-                0x00001200       0x40 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
-                0x00001200                matrix_addTranslation
+                0x00001aa0       0x40 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+                0x00001aa0                matrix_addTranslation
  .text.Matrix3DMake
-                0x00001240       0x40 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
-                0x00001240                Matrix3DMake
+                0x00001ae0       0x40 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
+                0x00001ae0                Matrix3DMake
  .text.Matrix3D_multiply
-                0x00001280      0x280 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
-                0x00001280                Matrix3D_multiply
+                0x00001b20      0x280 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
+                0x00001b20                Matrix3D_multiply
  .text.Matrix3D_apply
-                0x00001500       0xac CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
-                0x00001500                Matrix3D_apply
- *fill*         0x000015ac        0x4 
- .text.pnormal  0x000015b0       0x78 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
-                0x000015b0                pnormal
- *fill*         0x00001628        0x8 
+                0x00001da0       0xac CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
+                0x00001da0                Matrix3D_apply
+ *fill*         0x00001e4c        0x4 
+ .text.pnormal  0x00001e50       0x78 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
+                0x00001e50                pnormal
+ *fill*         0x00001ec8        0x8 
  .text.mini3d_setRealloc
-                0x00001630        0xc CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
-                0x00001630                mini3d_setRealloc
- *fill*         0x0000163c        0x4 
+                0x00001ed0        0xc CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
+                0x00001ed0                mini3d_setRealloc
+ *fill*         0x00001edc        0x4 
  .text.drawFragment.part.0
-                0x00001640       0xd4 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
- *fill*         0x00001714        0xc 
+                0x00001ee0       0xd4 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+ *fill*         0x00001fb4        0xc 
  .text.drawFragment_zbuf.part.0
-                0x00001720       0xd8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
- *fill*         0x000017f8        0x8 
+                0x00001fc0       0xd8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+ *fill*         0x00002098        0x8 
  .text.fillRange_zbuf
-                0x00001800      0x120 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+                0x000020a0      0x120 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
  .text.fillRange
-                0x00001920       0xcc CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
- *fill*         0x000019ec        0x4 
+                0x000021c0       0xcc CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+ *fill*         0x0000228c        0x4 
  .text.resetZBuffer
-                0x000019f0       0x44 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
-                0x000019f0                resetZBuffer
- *fill*         0x00001a34        0xc 
+                0x00002290       0x44 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+                0x00002290                resetZBuffer
+ *fill*         0x000022d4        0xc 
  .text.drawLine_zbuf
-                0x00001a40      0x360 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
-                0x00001a40                drawLine_zbuf
+                0x000022e0      0x360 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+                0x000022e0                drawLine_zbuf
  .text.drawLine
-                0x00001da0      0x250 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
-                0x00001da0                drawLine
+                0x00002640      0x250 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+                0x00002640                drawLine
  .text.fillTriangle
-                0x00001ff0      0x2b4 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
-                0x00001ff0                fillTriangle
- *fill*         0x000022a4        0xc 
+                0x00002890      0x2b4 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+                0x00002890                fillTriangle
+ *fill*         0x00002b44        0xc 
  .text.fillTriangle_zbuf
-                0x000022b0      0x458 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
-                0x000022b0                fillTriangle_zbuf
- *fill*         0x00002708        0x8 
+                0x00002b50      0x458 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+                0x00002b50                fillTriangle_zbuf
+ *fill*         0x00002fa8        0x8 
  .text.fillQuad
-                0x00002710       0x3c CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
-                0x00002710                fillQuad
- *fill*         0x0000274c        0x4 
+                0x00002fb0       0x3c CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+                0x00002fb0                fillQuad
+ *fill*         0x00002fec        0x4 
  .text.fillQuad_zbuf
-                0x00002750       0x3c CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
-                0x00002750                fillQuad_zbuf
- *fill*         0x0000278c        0x4 
+                0x00002ff0       0x3c CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+                0x00002ff0                fillQuad_zbuf
+ *fill*         0x0000302c        0x4 
  .text.getShapesAtNode
-                0x00002790       0x80 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x00003030       0x80 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
  .text.compareZ
-                0x00002810       0x1c CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
- *fill*         0x0000282c        0x4 
+                0x000030b0       0x1c CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+ *fill*         0x000030cc        0x4 
  .text.Scene3DNode_setTransform
-                0x00002830       0x3c CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x00002830                Scene3DNode_setTransform
- *fill*         0x0000286c        0x4 
+                0x000030d0       0x3c CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x000030d0                Scene3DNode_setTransform
+ *fill*         0x0000310c        0x4 
  .text.Scene3DNode_addTransform
-                0x00002870       0x88 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x00002870                Scene3DNode_addTransform
- *fill*         0x000028f8        0x8 
+                0x00003110       0x88 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x00003110                Scene3DNode_addTransform
+ *fill*         0x00003198        0x8 
  .text.Scene3DNode_setRenderStyle
-                0x00002900       0x14 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x00002900                Scene3DNode_setRenderStyle
- *fill*         0x00002914        0xc 
+                0x000031a0       0x14 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x000031a0                Scene3DNode_setRenderStyle
+ *fill*         0x000031b4        0xc 
  .text.Scene3DNode_getRenderStyle
-                0x00002920       0x14 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x00002920                Scene3DNode_getRenderStyle
- *fill*         0x00002934        0xc 
+                0x000031c0       0x14 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x000031c0                Scene3DNode_getRenderStyle
+ *fill*         0x000031d4        0xc 
  .text.Scene3DNode_setVisible
-                0x00002940       0x18 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x00002940                Scene3DNode_setVisible
- *fill*         0x00002958        0x8 
+                0x000031e0       0x18 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x000031e0                Scene3DNode_setVisible
+ *fill*         0x000031f8        0x8 
  .text.Scene3DNode_addShapeWithTransform
-                0x00002960      0x140 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x00002960                Scene3DNode_addShapeWithTransform
+                0x00003200      0x140 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x00003200                Scene3DNode_addShapeWithTransform
  .text.Scene3DNode_addShape
-                0x00002aa0       0x3c CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x00002aa0                Scene3DNode_addShape
- *fill*         0x00002adc        0x4 
+                0x00003340       0x3c CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x00003340                Scene3DNode_addShape
+ *fill*         0x0000337c        0x4 
  .text.Scene3DNode_newChild
-                0x00002ae0       0x7c CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x00002ae0                Scene3DNode_newChild
- *fill*         0x00002b5c        0x4 
+                0x00003380       0x7c CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x00003380                Scene3DNode_newChild
+ *fill*         0x000033fc        0x4 
  .text.Scene3D_updateShapeInstance
-                0x00002b60      0x218 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x00002b60                Scene3D_updateShapeInstance
- *fill*         0x00002d78        0x8 
+                0x00003400      0x218 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x00003400                Scene3D_updateShapeInstance
+ *fill*         0x00003618        0x8 
  .text.Scene3D_updateNode
-                0x00002d80      0x150 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x00002d80                Scene3D_updateNode
+                0x00003620      0x150 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x00003620                Scene3D_updateNode
  .text.Scene3D_setGlobalLight
-                0x00002ed0       0x20 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x00002ed0                Scene3D_setGlobalLight
+                0x00003770       0x20 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x00003770                Scene3D_setGlobalLight
  .text.Scene3D_getRootNode
-                0x00002ef0        0x4 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x00002ef0                Scene3D_getRootNode
- *fill*         0x00002ef4        0xc 
+                0x00003790        0x4 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x00003790                Scene3D_getRootNode
+ *fill*         0x00003794        0xc 
  .text.Scene3D_setCamera
-                0x00002f00      0x308 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x00002f00                Scene3D_setCamera
- *fill*         0x00003208        0x8 
+                0x000037a0      0x308 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x000037a0                Scene3D_setCamera
+ *fill*         0x00003aa8        0x8 
  .text.Scene3D_init
-                0x00003210       0xb8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x00003210                Scene3D_init
- *fill*         0x000032c8        0x8 
+                0x00003ab0       0xb8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x00003ab0                Scene3D_init
+ *fill*         0x00003b68        0x8 
  .text.Scene3D_drawNode
-                0x000032d0      0x5b8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x000032d0                Scene3D_drawNode
- *fill*         0x00003888        0x8 
+                0x00003b70      0x5b8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x00003b70                Scene3D_drawNode
+ *fill*         0x00004128        0x8 
  .text.Scene3D_draw
-                0x00003890       0x74 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
-                0x00003890                Scene3D_draw
- *fill*         0x00003904        0xc 
+                0x00004130       0x74 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x00004130                Scene3D_draw
+ *fill*         0x000041a4        0xc 
  .text.Shape3D_init
-                0x00003910       0x24 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
-                0x00003910                Shape3D_init
- *fill*         0x00003934        0xc 
+                0x000041b0       0x24 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
+                0x000041b0                Shape3D_init
+ *fill*         0x000041d4        0xc 
  .text.Shape3D_retain
-                0x00003940        0x8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
-                0x00003940                Shape3D_retain
- *fill*         0x00003948        0x8 
+                0x000041e0        0x8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
+                0x000041e0                Shape3D_retain
+ *fill*         0x000041e8        0x8 
  .text.Shape3D_addPoint
-                0x00003950       0x94 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
-                0x00003950                Shape3D_addPoint
- *fill*         0x000039e4        0xc 
+                0x000041f0       0x94 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
+                0x000041f0                Shape3D_addPoint
+ *fill*         0x00004284        0xc 
  .text.Shape3D_addFace
-                0x000039f0      0x1c4 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
-                0x000039f0                Shape3D_addFace
- *fill*         0x00003bb4        0xc 
+                0x00004290      0x1c4 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
+                0x00004290                Shape3D_addFace
+ *fill*         0x00004454        0xc 
  .text.Shape3D_setClosed
-                0x00003bc0       0x10 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
-                0x00003bc0                Shape3D_setClosed
+                0x00004460       0x10 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
+                0x00004460                Shape3D_setClosed
  .text.eventHandlerShim
-                0x00003bd0       0x1c CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
-                0x00003bd0                eventHandlerShim
- *fill*         0x00003bec        0x4 
+                0x00004470       0x1c CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
+                0x00004470                eventHandlerShim
+ *fill*         0x0000448c        0x4 
  .text._malloc_r
-                0x00003bf0        0xc CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
-                0x00003bf0                _malloc_r
- .text.malloc   0x00003bfc       0x10 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-malloc.o)
-                0x00003bfc                malloc
- .text.memset   0x00003c0c       0xa4 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-memset.o)
-                0x00003c0c                memset
- .text.qsort    0x00003cb0      0x634 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-qsort.o)
-                0x00003cb0                qsort
- .text.cosf     0x000042e4       0x70 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_cos.o)
-                0x000042e4                cosf
- .text.sinf     0x00004354       0x74 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_sin.o)
-                0x00004354                sinf
+                0x00004490        0xc CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
+                0x00004490                _malloc_r
+ .text.malloc   0x0000449c       0x10 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-malloc.o)
+                0x0000449c                malloc
+ .text.memset   0x000044ac       0xa4 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-memset.o)
+                0x000044ac                memset
+ .text.qsort    0x00004550      0x634 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-qsort.o)
+                0x00004550                qsort
+ .text.cosf     0x00004b84       0x70 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_cos.o)
+                0x00004b84                cosf
+ .text.sinf     0x00004bf4       0x74 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_sin.o)
+                0x00004bf4                sinf
  .text.__ieee754_rem_pio2f
-                0x000043c8      0x264 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_rem_pio2.o)
-                0x000043c8                __ieee754_rem_pio2f
+                0x00004c68      0x264 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_rem_pio2.o)
+                0x00004c68                __ieee754_rem_pio2f
  .text.__kernel_cosf
-                0x0000462c      0x104 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_cos.o)
-                0x0000462c                __kernel_cosf
+                0x00004ecc      0x104 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_cos.o)
+                0x00004ecc                __kernel_cosf
  .text.__kernel_rem_pio2f
-                0x00004730      0x674 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_rem_pio2.o)
-                0x00004730                __kernel_rem_pio2f
+                0x00004fd0      0x674 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_rem_pio2.o)
+                0x00004fd0                __kernel_rem_pio2f
  .text.__kernel_sinf
-                0x00004da4       0x90 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_sin.o)
-                0x00004da4                __kernel_sinf
- .text.fabsf    0x00004e34       0x10 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_fabs.o)
-                0x00004e34                fabsf
- .text.floorf   0x00004e44       0x8c c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_floor.o)
-                0x00004e44                floorf
- .text.scalbnf  0x00004ed0       0xe4 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_scalbn.o)
-                0x00004ed0                scalbnf
+                0x00005644       0x90 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_sin.o)
+                0x00005644                __kernel_sinf
+ .text.fabsf    0x000056d4       0x10 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_fabs.o)
+                0x000056d4                fabsf
+ .text.floorf   0x000056e4       0x8c c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_floor.o)
+                0x000056e4                floorf
+ .text.scalbnf  0x00005770       0xe4 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_scalbn.o)
+                0x00005770                scalbnf
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -1160,265 +1178,284 @@ END GROUP
  *(.dtors)
  *(.rodata*)
  .rodata.InitGame.str1.4
-                0x00004fb4       0x57 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
- *fill*         0x0000500b        0x1 
+                0x00005854       0x57 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
+ *fill*         0x000058ab        0x1 
  .rodata.InitStackzSceneData.str1.4
-                0x0000500c       0x2b CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
- *fill*         0x00005037        0x1 
+                0x000058ac       0x2b CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ *fill*         0x000058d7        0x1 
  .rodata.updateStackz.str1.4
-                0x00005038       0x83 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
- *fill*         0x000050bb        0x1 
+                0x000058d8       0x5b CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ *fill*         0x00005933        0x1 
  .rodata.LCD_PATTERN_DITHER_GREY05
-                0x000050bc       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                0x000050bc                LCD_PATTERN_DITHER_GREY05
+                0x00005934       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x00005934                LCD_PATTERN_DITHER_GREY05
  .rodata.LCD_PATTERN_DITHER_GREY10
-                0x000050cc       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                0x000050cc                LCD_PATTERN_DITHER_GREY10
+                0x00005944       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x00005944                LCD_PATTERN_DITHER_GREY10
  .rodata.LCD_PATTERN_DITHER_GREY15
-                0x000050dc       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                0x000050dc                LCD_PATTERN_DITHER_GREY15
+                0x00005954       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x00005954                LCD_PATTERN_DITHER_GREY15
  .rodata.LCD_PATTERN_DITHER_GREY20
-                0x000050ec       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                0x000050ec                LCD_PATTERN_DITHER_GREY20
+                0x00005964       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x00005964                LCD_PATTERN_DITHER_GREY20
  .rodata.LCD_PATTERN_DITHER_GREY25
-                0x000050fc       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                0x000050fc                LCD_PATTERN_DITHER_GREY25
+                0x00005974       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x00005974                LCD_PATTERN_DITHER_GREY25
  .rodata.LCD_PATTERN_DITHER_GREY30
-                0x0000510c       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                0x0000510c                LCD_PATTERN_DITHER_GREY30
+                0x00005984       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x00005984                LCD_PATTERN_DITHER_GREY30
  .rodata.LCD_PATTERN_DITHER_GREY35
-                0x0000511c       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                0x0000511c                LCD_PATTERN_DITHER_GREY35
+                0x00005994       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x00005994                LCD_PATTERN_DITHER_GREY35
  .rodata.LCD_PATTERN_DITHER_GREY40
-                0x0000512c       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                0x0000512c                LCD_PATTERN_DITHER_GREY40
+                0x000059a4       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x000059a4                LCD_PATTERN_DITHER_GREY40
  .rodata.LCD_PATTERN_DITHER_GREY45
-                0x0000513c       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                0x0000513c                LCD_PATTERN_DITHER_GREY45
+                0x000059b4       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x000059b4                LCD_PATTERN_DITHER_GREY45
  .rodata.LCD_PATTERN_DITHER_GREY50_ALT1
-                0x0000514c       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                0x0000514c                LCD_PATTERN_DITHER_GREY50_ALT1
+                0x000059c4       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x000059c4                LCD_PATTERN_DITHER_GREY50_ALT1
  .rodata.LCD_PATTERN_DITHER_GREY60
-                0x0000515c       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                0x0000515c                LCD_PATTERN_DITHER_GREY60
+                0x000059d4       0x10 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x000059d4                LCD_PATTERN_DITHER_GREY60
  .rodata.cameraLookat
-                0x0000516c        0xc CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+                0x000059e4        0xc CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
  .rodata.npio2_hw
-                0x00005178       0x80 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_rem_pio2.o)
+                0x000059f0       0x80 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_rem_pio2.o)
  .rodata.two_over_pi
-                0x000051f8      0x318 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_rem_pio2.o)
- .rodata.PIo2   0x00005510       0x2c c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_rem_pio2.o)
+                0x00005a70      0x318 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_rem_pio2.o)
+ .rodata.PIo2   0x00005d88       0x2c c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_rem_pio2.o)
  .rodata.init_jk
-                0x0000553c        0xc c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_rem_pio2.o)
+                0x00005db4        0xc c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_rem_pio2.o)
  *(.eh_frame*)
 
-.glue_7         0x00005548        0x0
- .glue_7        0x00005548        0x0 linker stubs
+.glue_7         0x00005dc0        0x0
+ .glue_7        0x00005dc0        0x0 linker stubs
 
-.glue_7t        0x00005548        0x0
- .glue_7t       0x00005548        0x0 linker stubs
+.glue_7t        0x00005dc0        0x0
+ .glue_7t       0x00005dc0        0x0 linker stubs
 
-.vfp11_veneer   0x00005548        0x0
- .vfp11_veneer  0x00005548        0x0 linker stubs
+.vfp11_veneer   0x00005dc0        0x0
+ .vfp11_veneer  0x00005dc0        0x0 linker stubs
 
-.v4_bx          0x00005548        0x0
- .v4_bx         0x00005548        0x0 linker stubs
+.v4_bx          0x00005dc0        0x0
+ .v4_bx         0x00005dc0        0x0 linker stubs
 
-.iplt           0x00005548        0x0
- .iplt          0x00005548        0x0 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
+.iplt           0x00005dc0        0x0
+ .iplt          0x00005dc0        0x0 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
 
-.rel.dyn        0x00005548        0x0
- .rel.iplt      0x00005548        0x0 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
+.rel.dyn        0x00005dc0        0x0
+ .rel.iplt      0x00005dc0        0x0 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
 
-.data           0x00005548      0x580
-                0x00005548                __etext = .
-                0x00005548                __data_start__ = .
+.data           0x00005dc0      0x598
+                0x00005dc0                __etext = .
+                0x00005dc0                __data_start__ = .
  *(vtable)
  *(.data*)
+ .data.leftrightrotation
+                0x00005dc0        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .data.targetBoxDepth
+                0x00005dc4        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .data.targetBoxWidth
+                0x00005dc8        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .data.targetBoxXScale
+                0x00005dcc        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .data.targetBoxZScale
+                0x00005dd0        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .data.zoom     0x00005dd4        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
  .data.cameraOrigin
-                0x00005548        0xc CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+                0x00005dd8        0xc CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
  .data.cameraUp
-                0x00005554        0xc CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+                0x00005de4        0xc CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
  .data.identityMatrix
-                0x00005560       0x34 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
-                0x00005560                identityMatrix
+                0x00005df0       0x34 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
+                0x00005df0                identityMatrix
  .data.patterns
-                0x00005594      0x108 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x00005e24      0x108 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
  .data._impure_ptr
-                0x0000569c        0x4 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-impure.o)
-                0x0000569c                _impure_ptr
+                0x00005f2c        0x4 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-impure.o)
+                0x00005f2c                _impure_ptr
  .data.impure_data
-                0x000056a0      0x428 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-impure.o)
-                0x00005ac8                . = ALIGN (0x4)
+                0x00005f30      0x428 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-impure.o)
+                0x00006358                . = ALIGN (0x4)
                 [!provide]                PROVIDE (__preinit_array_start = .)
  *(.preinit_array)
                 [!provide]                PROVIDE (__preinit_array_end = .)
-                0x00005ac8                . = ALIGN (0x4)
+                0x00006358                . = ALIGN (0x4)
                 [!provide]                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
                 [!provide]                PROVIDE (__init_array_end = .)
-                0x00005ac8                . = ALIGN (0x4)
+                0x00006358                . = ALIGN (0x4)
                 [!provide]                PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array)
                 [!provide]                PROVIDE (__fini_array_end = .)
-                0x00005ac8                . = ALIGN (0x4)
-                0x00005ac8                __data_end__ = .
+                0x00006358                . = ALIGN (0x4)
+                0x00006358                __data_end__ = .
 
-.igot.plt       0x00005ac8        0x0
- .igot.plt      0x00005ac8        0x0 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
+.igot.plt       0x00006358        0x0
+ .igot.plt      0x00006358        0x0 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
 
-.bss            0x00005ac8    0x2ef34
-                0x00005ac8                . = ALIGN (0x4)
-                0x00005ac8                __bss_start__ = .
+.bss            0x00006358    0x2ef44
+                0x00006358                . = ALIGN (0x4)
+                0x00006358                __bss_start__ = .
  *(.bss*)
- .bss.Game      0x00005ac8       0xf0 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
-                0x00005ac8                Game
- .bss.display   0x00005bb8        0x4 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
-                0x00005bb8                display
- .bss.file      0x00005bbc        0x4 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
-                0x00005bbc                file
- .bss.gfx       0x00005bc0        0x4 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
-                0x00005bc0                gfx
- .bss.sound     0x00005bc4        0x4 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
-                0x00005bc4                sound
- .bss.sys       0x00005bc8        0x4 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
-                0x00005bc8                sys
+ .bss.Game      0x00006358       0xf0 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
+                0x00006358                Game
+ .bss.display   0x00006448        0x4 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
+                0x00006448                display
+ .bss.file      0x0000644c        0x4 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
+                0x0000644c                file
+ .bss.gfx       0x00006450        0x4 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
+                0x00006450                gfx
+ .bss.sound     0x00006454        0x4 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
+                0x00006454                sound
+ .bss.sys       0x00006458        0x4 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
+                0x00006458                sys
  .bss.activeNode
-                0x00005bcc        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
- .bss.addv      0x00005bd0        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                0x00005bd0                addv
- .bss.pushed    0x00005bd4        0x1 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
- *fill*         0x00005bd5        0x3 
- .bss.rootNode  0x00005bd8        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
- .bss.scene     0x00005bdc        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
- .bss.score     0x00005be0        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x0000645c        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .bss.activeNodeSubnode
+                0x00006460        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .bss.addv      0x00006464        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x00006464                addv
+ .bss.direction
+                0x00006468        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .bss.pushed    0x0000646c        0x1 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ *fill*         0x0000646d        0x3 
+ .bss.rootNode  0x00006470        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .bss.scene     0x00006474        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .bss.score     0x00006478        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
  .bss.scorewidth
-                0x00005be4        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                0x00005be4                scorewidth
+                0x0000647c        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x0000647c                scorewidth
  .bss.stackNode
-                0x00005be8        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x00006480        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
  .bss.stackNodeMatrix
-                0x00005bec        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x00006484        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .bss.targetBoxX
+                0x00006488        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .bss.targetBoxZ
+                0x0000648c        0x4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
  .bss.m3d_realloc
-                0x00005bf0        0x4 CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
-                0x00005bf0                m3d_realloc
- .bss.zbuf      0x00005bf4    0x2ee00 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
- .bss.zscale    0x000349f4        0x4 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+                0x00006490        0x4 CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
+                0x00006490                m3d_realloc
+ .bss.zbuf      0x00006494    0x2ee00 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+ .bss.zscale    0x00035294        0x4 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
  .bss.pdrealloc
-                0x000349f8        0x4 CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
+                0x00035298        0x4 CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
  *(COMMON)
  *(COM)
-                0x000349fc                . = ALIGN (0x4)
-                0x000349fc                __bss_end__ = .
+                0x0003529c                . = ALIGN (0x4)
+                0x0003529c                __bss_end__ = .
 
 /DISCARD/
  *(.ARM.exidx)
 OUTPUT(stackz_DEVICE.elf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x00000000    0x1ffd3
+.debug_info     0x00000000    0x204ac
  .debug_info    0x00000000     0x6414 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
  .debug_info    0x00006414     0x5b18 CMakeFiles\stackz_DEVICE.dir\src\main.c.obj
- .debug_info    0x0000bf2c     0x7364 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
- .debug_info    0x00013290     0x1e94 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
- .debug_info    0x00015124      0x700 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
- .debug_info    0x00015824       0xb0 CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
- .debug_info    0x000158d4     0x1f00 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
- .debug_info    0x000177d4     0x1db1 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
- .debug_info    0x00019585      0x4cf CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
- .debug_info    0x00019a54     0x657f CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
+ .debug_info    0x0000bf2c     0x7710 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .debug_info    0x0001363c     0x1fc1 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+ .debug_info    0x000155fd      0x700 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
+ .debug_info    0x00015cfd       0xb0 CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
+ .debug_info    0x00015dad     0x1f00 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+ .debug_info    0x00017cad     0x1db1 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+ .debug_info    0x00019a5e      0x4cf CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
+ .debug_info    0x00019f2d     0x657f CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
 
-.debug_abbrev   0x00000000     0x1eee
+.debug_abbrev   0x00000000     0x1fd5
  .debug_abbrev  0x00000000      0x37f CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
  .debug_abbrev  0x0000037f      0x250 CMakeFiles\stackz_DEVICE.dir\src\main.c.obj
- .debug_abbrev  0x000005cf      0x49d CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
- .debug_abbrev  0x00000a6c      0x3a8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
- .debug_abbrev  0x00000e14      0x228 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
- .debug_abbrev  0x0000103c       0xaa CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
- .debug_abbrev  0x000010e6      0x3bb CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
- .debug_abbrev  0x000014a1      0x505 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
- .debug_abbrev  0x000019a6      0x238 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
- .debug_abbrev  0x00001bde      0x310 CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
+ .debug_abbrev  0x000005cf      0x569 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .debug_abbrev  0x00000b38      0x3c3 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+ .debug_abbrev  0x00000efb      0x228 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
+ .debug_abbrev  0x00001123       0xaa CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
+ .debug_abbrev  0x000011cd      0x3bb CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+ .debug_abbrev  0x00001588      0x505 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+ .debug_abbrev  0x00001a8d      0x238 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
+ .debug_abbrev  0x00001cc5      0x310 CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
 
-.debug_loc      0x00000000     0x8e05
+.debug_loc      0x00000000     0x934f
  .debug_loc     0x00000000      0x13e CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
  .debug_loc     0x0000013e       0xb9 CMakeFiles\stackz_DEVICE.dir\src\main.c.obj
- .debug_loc     0x000001f7      0x1f4 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
- .debug_loc     0x000003eb     0x19aa CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
- .debug_loc     0x00001d95      0xb3a CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
- .debug_loc     0x000028cf     0x3ff8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
- .debug_loc     0x000068c7     0x1fdb CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
- .debug_loc     0x000088a2      0x347 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
- .debug_loc     0x00008be9      0x21c CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
+ .debug_loc     0x000001f7      0x570 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .debug_loc     0x00000767     0x1b78 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+ .debug_loc     0x000022df      0xb3a CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
+ .debug_loc     0x00002e19     0x3ff8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+ .debug_loc     0x00006e11     0x1fdb CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+ .debug_loc     0x00008dec      0x347 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
+ .debug_loc     0x00009133      0x21c CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
 
-.debug_aranges  0x00000000      0x350
+.debug_aranges  0x00000000      0x370
  .debug_aranges
                 0x00000000       0x28 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
  .debug_aranges
                 0x00000028       0x20 CMakeFiles\stackz_DEVICE.dir\src\main.c.obj
  .debug_aranges
-                0x00000048       0x30 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                0x00000048       0x40 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
  .debug_aranges
-                0x00000078       0x98 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+                0x00000088       0xa8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
  .debug_aranges
-                0x00000110       0x50 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
+                0x00000130       0x50 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
  .debug_aranges
-                0x00000160       0x20 CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
+                0x00000180       0x20 CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
  .debug_aranges
-                0x00000180       0x70 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+                0x000001a0       0x70 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
  .debug_aranges
-                0x000001f0       0xe0 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+                0x00000210       0xe0 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
  .debug_aranges
-                0x000002d0       0x48 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
+                0x000002f0       0x48 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
  .debug_aranges
-                0x00000318       0x38 CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
+                0x00000338       0x38 CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
 
-.debug_ranges   0x00000000     0x11d8
+.debug_ranges   0x00000000     0x1208
  .debug_ranges  0x00000000       0x98 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
  .debug_ranges  0x00000098       0x10 CMakeFiles\stackz_DEVICE.dir\src\main.c.obj
  .debug_ranges  0x000000a8      0x1c8 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
- .debug_ranges  0x00000270      0x558 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
- .debug_ranges  0x000007c8       0x58 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
- .debug_ranges  0x00000820       0x10 CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
- .debug_ranges  0x00000830      0x590 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
- .debug_ranges  0x00000dc0      0x3a0 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
- .debug_ranges  0x00001160       0x50 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
- .debug_ranges  0x000011b0       0x28 CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
+ .debug_ranges  0x00000270      0x588 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+ .debug_ranges  0x000007f8       0x58 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
+ .debug_ranges  0x00000850       0x10 CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
+ .debug_ranges  0x00000860      0x590 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+ .debug_ranges  0x00000df0      0x3a0 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+ .debug_ranges  0x00001190       0x50 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
+ .debug_ranges  0x000011e0       0x28 CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
 
-.debug_line     0x00000000     0x5607
+.debug_line     0x00000000     0x59f8
  .debug_line    0x00000000      0x586 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
  .debug_line    0x00000586      0x3bc CMakeFiles\stackz_DEVICE.dir\src\main.c.obj
- .debug_line    0x00000942      0x9a1 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
- .debug_line    0x000012e3      0xd9e CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
- .debug_line    0x00002081      0x397 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
- .debug_line    0x00002418       0xf7 CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
- .debug_line    0x0000250f     0x13d2 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
- .debug_line    0x000038e1     0x1315 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
- .debug_line    0x00004bf6      0x5b2 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
- .debug_line    0x000051a8      0x45f CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
+ .debug_line    0x00000942      0xc4e CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .debug_line    0x00001590      0xee2 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+ .debug_line    0x00002472      0x397 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
+ .debug_line    0x00002809       0xf7 CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
+ .debug_line    0x00002900     0x13d2 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+ .debug_line    0x00003cd2     0x1315 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+ .debug_line    0x00004fe7      0x5b2 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
+ .debug_line    0x00005599      0x45f CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
 
-.debug_str      0x00000000     0x3dcc
- .debug_str     0x00000000     0x2b1e CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
+.debug_str      0x00000000     0x3ebd
+ .debug_str     0x00000000     0x2b19 CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
                                0x2da3 (size before relaxing)
- .debug_str     0x00002b1e       0xd0 CMakeFiles\stackz_DEVICE.dir\src\main.c.obj
+ .debug_str     0x00002b19       0xd0 CMakeFiles\stackz_DEVICE.dir\src\main.c.obj
                                0x2ab5 (size before relaxing)
- .debug_str     0x00002bee      0x7ab CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-                               0x34f7 (size before relaxing)
- .debug_str     0x00003399      0x1ba CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
-                                0x670 (size before relaxing)
- .debug_str     0x00003553       0xc5 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
+ .debug_str     0x00002be9      0x894 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+                               0x35e0 (size before relaxing)
+ .debug_str     0x0000347d      0x1c7 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+                                0x6a3 (size before relaxing)
+ .debug_str     0x00003644       0xc5 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
                                 0x2db (size before relaxing)
- .debug_str     0x00003618       0x23 CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
+ .debug_str     0x00003709       0x23 CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
                                 0x185 (size before relaxing)
- .debug_str     0x0000363b      0x137 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+ .debug_str     0x0000372c      0x137 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
                                 0x397 (size before relaxing)
- .debug_str     0x00003772      0x1ef CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+ .debug_str     0x00003863      0x1ef CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
                                 0x80a (size before relaxing)
- .debug_str     0x00003961       0x42 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
+ .debug_str     0x00003a52       0x42 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
                                 0x2d6 (size before relaxing)
- .debug_str     0x000039a3      0x429 CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
+ .debug_str     0x00003a94      0x429 CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
                                0x2ed9 (size before relaxing)
 
 .comment        0x00000000       0x49
@@ -1459,58 +1496,64 @@ LOAD linker stubs
  .ARM.attributes
                 0x00000208       0x1e c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x00000226       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-malloc.o)
+                0x00000226       0x1e c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
  .ARM.attributes
-                0x0000025a       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-memset.o)
+                0x00000244       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-malloc.o)
  .ARM.attributes
-                0x0000028e       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-qsort.o)
+                0x00000278       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-memset.o)
  .ARM.attributes
-                0x000002c2       0x1c c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-strlen.o)
+                0x000002ac       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-qsort.o)
  .ARM.attributes
-                0x000002de       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-impure.o)
+                0x000002e0       0x1c c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-strlen.o)
  .ARM.attributes
-                0x00000312       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_cos.o)
+                0x000002fc       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-impure.o)
  .ARM.attributes
-                0x00000346       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_sin.o)
+                0x00000330       0x1e c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
  .ARM.attributes
-                0x0000037a       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_rem_pio2.o)
+                0x0000034e       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_cos.o)
  .ARM.attributes
-                0x000003ae       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_cos.o)
+                0x00000382       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_sin.o)
  .ARM.attributes
-                0x000003e2       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_rem_pio2.o)
+                0x000003b6       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_rem_pio2.o)
  .ARM.attributes
-                0x00000416       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_sin.o)
+                0x000003ea       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_cos.o)
  .ARM.attributes
-                0x0000044a       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_fabs.o)
+                0x0000041e       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_rem_pio2.o)
  .ARM.attributes
-                0x0000047e       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_floor.o)
+                0x00000452       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_sin.o)
  .ARM.attributes
-                0x000004b2       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_scalbn.o)
+                0x00000486       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_fabs.o)
+ .ARM.attributes
+                0x000004ba       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_floor.o)
+ .ARM.attributes
+                0x000004ee       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_scalbn.o)
 
-.debug_frame    0x00000000      0xeec
+.debug_frame    0x00000000     0x1000
  .debug_frame   0x00000000       0x5c CMakeFiles\stackz_DEVICE.dir\src\game.c.obj
  .debug_frame   0x0000005c       0x2c CMakeFiles\stackz_DEVICE.dir\src\main.c.obj
- .debug_frame   0x00000088       0xd8 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
- .debug_frame   0x00000160      0x244 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
- .debug_frame   0x000003a4      0x11c CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
- .debug_frame   0x000004c0       0x20 CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
- .debug_frame   0x000004e0      0x230 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
- .debug_frame   0x00000710      0x3b0 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
- .debug_frame   0x00000ac0       0xc8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
- .debug_frame   0x00000b88       0x5c CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
- .debug_frame   0x00000be4       0xac c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
- .debug_frame   0x00000c90       0x30 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-malloc.o)
- .debug_frame   0x00000cc0       0x2c c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-memset.o)
- .debug_frame   0x00000cec       0x44 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-qsort.o)
- .debug_frame   0x00000d30       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_cos.o)
- .debug_frame   0x00000d64       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_sin.o)
- .debug_frame   0x00000d98       0x3c c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_rem_pio2.o)
- .debug_frame   0x00000dd4       0x20 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_cos.o)
- .debug_frame   0x00000df4       0x5c c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_rem_pio2.o)
- .debug_frame   0x00000e50       0x20 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_sin.o)
- .debug_frame   0x00000e70       0x20 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_fabs.o)
- .debug_frame   0x00000e90       0x20 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_floor.o)
- .debug_frame   0x00000eb0       0x3c c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_scalbn.o)
+ .debug_frame   0x00000088      0x138 CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+ .debug_frame   0x000001c0      0x284 CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+ .debug_frame   0x00000444      0x11c CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
+ .debug_frame   0x00000560       0x20 CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
+ .debug_frame   0x00000580      0x230 CMakeFiles\stackz_DEVICE.dir\src\mini3d\render.c.obj
+ .debug_frame   0x000007b0      0x3b0 CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
+ .debug_frame   0x00000b60       0xc8 CMakeFiles\stackz_DEVICE.dir\src\mini3d\shape.c.obj
+ .debug_frame   0x00000c28       0x5c CMakeFiles\stackz_DEVICE.dir\C_\Users\Mike\Documents\PlaydateSDK\C_API\buildsupport\setup.c.obj
+ .debug_frame   0x00000c84       0xac c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
+ .debug_frame   0x00000d30       0x24 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+ .debug_frame   0x00000d54       0x30 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-malloc.o)
+ .debug_frame   0x00000d84       0x2c c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-memset.o)
+ .debug_frame   0x00000db0       0x44 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-qsort.o)
+ .debug_frame   0x00000df4       0x50 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldivdf3.o)
+ .debug_frame   0x00000e44       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_cos.o)
+ .debug_frame   0x00000e78       0x34 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_sin.o)
+ .debug_frame   0x00000eac       0x3c c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-ef_rem_pio2.o)
+ .debug_frame   0x00000ee8       0x20 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_cos.o)
+ .debug_frame   0x00000f08       0x5c c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_rem_pio2.o)
+ .debug_frame   0x00000f64       0x20 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-kf_sin.o)
+ .debug_frame   0x00000f84       0x20 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_fabs.o)
+ .debug_frame   0x00000fa4       0x20 c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_floor.o)
+ .debug_frame   0x00000fc4       0x3c c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(lib_a-sf_scalbn.o)
 
 Cross Reference Table
 
@@ -1635,6 +1678,8 @@ __adddf3                                          c:/users/mike/downloads/gcc-ar
 __aeabi_cdcmpeq                                   c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
 __aeabi_cdcmple                                   c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
 __aeabi_cdrcmple                                  c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_cmpdf2.o)
+__aeabi_d2f                                       c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
+                                                  CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
 __aeabi_d2iz                                      c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_fixdfsi.o)
                                                   c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-dtoa.o)
                                                   c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-vfprintf.o)
@@ -1664,6 +1709,7 @@ __aeabi_dmul                                      c:/users/mike/downloads/gcc-ar
                                                   c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-mprec.o)
                                                   c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-dtoa.o)
                                                   c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-vfprintf.o)
+                                                  CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
 __aeabi_drsub                                     c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
 __aeabi_dsub                                      c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
                                                   c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-dtoa.o)
@@ -1845,6 +1891,7 @@ __swsetup_r                                       c:/users/mike/downloads/gcc-ar
                                                   c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-fvwrite.o)
                                                   c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-vfiprintf.o)
                                                   c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-vfprintf.o)
+__truncdfsf2                                      c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_truncdfsf2.o)
 __udivmoddi4                                      c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
                                                   c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
 __ulp                                             c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-mprec.o)
@@ -2018,6 +2065,8 @@ matrix_addTranslation                             CMakeFiles\stackz_DEVICE.dir\s
 matrix_new                                        CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
                                                   CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
 matrix_newRotation                                CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+matrix_scaleByAndAddTranslation                   CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+                                                  CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
 matrix_updateRotation                             CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
                                                   CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
 memchr                                            c:/users/mike/downloads/gcc-arm-none-eabi-10.3-2021.10-win32/gcc-arm-none-eabi-10.3-2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc.a(lib_a-memchr.o)
@@ -2037,8 +2086,9 @@ memset                                            c:/users/mike/downloads/gcc-ar
                                                   CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
 mini3d_setRealloc                                 CMakeFiles\stackz_DEVICE.dir\src\mini3d\mini3d.c.obj
                                                   CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
-node_scaleBy                                      CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
+node_resetTranform                                CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
                                                   CMakeFiles\stackz_DEVICE.dir\src\stackz.c.obj
+node_scaleBy                                      CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj
 pnormal                                           CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dmath.c.obj
                                                   CMakeFiles\stackz_DEVICE.dir\src\mini3d\scene.c.obj
 point_new                                         CMakeFiles\stackz_DEVICE.dir\src\mini3d\3dhelper.c.obj

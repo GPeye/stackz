@@ -37,6 +37,8 @@ static float targetBoxZScale = 1.f;
 static int isFirstLoop = 0;
 static int direction = 0;
 
+static float zoom = 5.f;
+
 static void getIntersectingBox() {
     float size;
     float targetsize;
@@ -54,7 +56,7 @@ static void getIntersectingBox() {
 }
 
 float getColorFromIndex(int index) {
-    float adjustedIndex = (index + 10) * 0.2f;
+    float adjustedIndex = (index + 10) * 0.4f;
     return (sinf((float)adjustedIndex) * 0.5f) - 0.3f;
     int x = FLT_MAX;
 }
@@ -98,7 +100,7 @@ static void updateActiveBlockSize(float x, float z, float scalex, float scalez) 
 
 static void initSceneAndCamera() {
     scene = Game.StackzData.scene = scene_new();
-    scene_setCameraOrigin(scene, 0.f, 5.f, 6.f);
+    scene_setCameraOrigin(scene, 0.f, zoom*1.f, zoom*1.2);
 	scene_setLight(scene, 0.2f, 0.8f, 0.4f);
 }
 
@@ -391,9 +393,15 @@ static void displayScore() {
 }
 
 static void rotateRootNodeWithCrank() {
-    Game.StackzData.crankChange = sys->getCrankChange();
-    matrix_updateRotation(Game.StackzData.crankMatrix, Game.StackzData.crankChange,1.f,0.f,0.f);
-	Scene3DNode_addTransform(rootNode, Game.StackzData.crankMatrix);
+    Game.StackzData.crankChange = sys->getCrankChange() / 50.f;
+    zoom -= Game.StackzData.crankChange;
+    if (zoom > 10.f)
+        zoom = 10.f;
+    if (zoom < 2.f)
+        zoom = 2.f;
+    scene_setCameraOrigin(scene, 0.f, zoom * 1.f, zoom * 1.2);
+    //matrix_updateRotation(Game.StackzData.crankMatrix, Game.StackzData.crankChange,1.f,0.f,0.f);
+	//Scene3DNode_addTransform(rootNode, Game.StackzData.crankMatrix);
 }
 
 
