@@ -1,74 +1,88 @@
 #include "game.h"
 #include "stackz.h"
+#include "menu.h"
 
-const struct playdate_graphics *gfx = NULL;
-const struct playdate_sys *sys = NULL;
-const struct playdate_display *display = NULL;
-const struct playdate_file *file = NULL;
-const struct playdate_sound *sound = NULL;
+const struct playdate_graphics* gfx = NULL;
+const struct playdate_sys* sys = NULL;
+const struct playdate_display* display = NULL;
+const struct playdate_file* file = NULL;
+const struct playdate_sound* sound = NULL;
 
 GameStruct Game;
 
 static void initFont() {
-    Game.fontpath = "num";
+	const char* fontPath14 = "sofachrome-rg-14";
+	const char* fontPath20 = "sofachrome-rg-20";
+	const char* fontPath40 = "sofachrome-rg-40";
 	const char* err;
-	Game.font = gfx->loadFont(Game.fontpath, &err);
-    if ( Game.font == NULL )
-		sys->error("%s:%i Couldn't load font %s: %s", __FILE__, __LINE__, Game.fontpath, err);
-    gfx->setFont(Game.font);
+	Game.font14 = gfx->loadFont(fontPath14, &err);
+	if (Game.font14 == NULL)
+		sys->error("%s:%i Couldn't load font %s: %s", __FILE__, __LINE__, fontPath14, err);
+	Game.font20 = gfx->loadFont(fontPath20, &err);
+	if (Game.font20 == NULL)
+		sys->error("%s:%i Couldn't load font %s: %s", __FILE__, __LINE__, fontPath20, err);
+	Game.font40 = gfx->loadFont(fontPath40, &err);
+	if (Game.font40 == NULL)
+		sys->error("%s:%i Couldn't load font %s: %s", __FILE__, __LINE__, fontPath40, err);
+	gfx->setFont(Game.font14);
 }
 
 static void initCircularLinkedListOfStack() {
-    struct Node* temp;
-    for(int i=0;i<STACKMAX;i++){
-        struct Node* node;
-        node = (struct Node*)malloc(sizeof(struct Node));
-        if(i==0) {
-            Game.StackzData.firstNode = node;
-            temp = node;
-        } else {
-            temp->next = node;
-            temp = node;
-        }
-        if(i==STACKMAX-1) {
-            sys->logToConsole("setting last box next?");
-            Game.StackzData.lastNode = node;
-            Game.StackzData.lastNode->next = Game.StackzData.firstNode;
-        } 
-    }
+	struct Node* temp;
+	for (int i = 0; i < STACKMAX; i++) {
+		struct Node* node;
+		node = (struct Node*)malloc(sizeof(struct Node));
+		if (i == 0) {
+			Game.StackzData.firstNode = node;
+			temp = node;
+		}
+		else {
+			temp->next = node;
+			temp = node;
+		}
+		if (i == STACKMAX - 1) {
+			sys->logToConsole("setting last box next?");
+			Game.StackzData.lastNode = node;
+			Game.StackzData.lastNode->next = Game.StackzData.firstNode;
+		}
+	}
 }
 
-void InitGame(PlaydateAPI *pd)
+void InitGame(PlaydateAPI* pd)
 {
-    pd->display->setRefreshRate(30);
-    Game.gState = State_InGame;
-    Game.gPd = pd;
-    gfx = Game.gPd->graphics;
-    sys = Game.gPd->system;
-    display = Game.gPd->display;
-    file = Game.gPd->file;
-    sound = Game.gPd->sound;
+	pd->display->setRefreshRate(30);
+	//Game.gState = State_InGame;
+	Game.gState = State_Menu;
+	Game.gPd = pd;
+	gfx = Game.gPd->graphics;
+	sys = Game.gPd->system;
+	display = Game.gPd->display;
+	file = Game.gPd->file;
+	sound = Game.gPd->sound;
 
-    initFont();
+	initFont();
 
-    initCircularLinkedListOfStack();
+	initCircularLinkedListOfStack();
 
-    InitStackzSceneData();
+	InitStackzSceneData();
 }
 
-int Update(void *userdata)
+int Update(void* userdata)
 {
-    //gfx->clear(kColorWhite);
+	//gfx->clear(kColorWhite);
 
-    switch (Game.gState)
-    {
-    case State_InGame:
-        updateStackz(&Game);
-        break;
-    default:
-        break;
-    }
+	switch (Game.gState)
+	{
+	case State_Menu:
+		updateMenu(&Game);
+		break;
+	case State_InGame:
+		updateStackz(&Game);
+		break;
+	default:
+		break;
+	}
 
-    sys->drawFPS(0, 0);
-    return 1;
+	sys->drawFPS(0, 0);
+	return 1;
 }

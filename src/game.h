@@ -45,6 +45,9 @@ typedef struct
 
     const char* fontpath;
     LCDFont* font;
+    LCDFont* font14;
+    LCDFont* font20;
+    LCDFont* font40;
 
     struct
     {

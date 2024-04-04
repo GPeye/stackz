@@ -1,5 +1,5 @@
-name=HelloWorldC
-author=Human Person
-description=A small demo of the C API
-bundleID=com.panic.hellocapi
+name=Stackz
+author=Halfmonty
+description=A game of stacking blocks
+bundleID=com.panic.stackz
 imagePath=launcher
