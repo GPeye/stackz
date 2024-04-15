@@ -39,22 +39,6 @@ static int direction = 0;
 
 static float zoom = 5.f;
 
-static void getIntersectingBox() {
-    float size;
-    float targetsize;
-    if(direction == 0) {
-        size = activeBoxDepth;
-        targetsize = targetBoxDepth;
-    }
-    else {
-        size = activeBoxWidth;
-        targetsize = targetBoxWidth;
-    }
-
-
-
-}
-
 float getColorFromIndex(int index) {
     float adjustedIndex = (index + 10) * 0.4f;
     return (sinf((float)adjustedIndex) * 0.5f) - 0.3f;
@@ -70,32 +54,14 @@ static void addBoxToStack(float x, float z, float scalex, float scalez) {
     Game.StackzData.currentNode->scene3DNode->colorBias = getColorFromIndex(Game.StackzData.stackBoxIndex);
     addv += 0.5f;
     matrix_scaleByAndAddTranslation(Game.StackzData.currentNode->scene3DNode, scalex, 1.f, scalez, x, addv, z);
-    //Game.StackzData.stackNodeMatrix = matrix_addTranslation(x, addv, z);
-    //Scene3DNode_setTransform(Game.StackzData.currentNode->scene3DNode, stackNodeMatrix);
-    //node_scaleBy(Game.StackzData.currentNode->scene3DNode, scalex, 1.f, scalez);
     Game.StackzData.stackNodeMatrix = matrix_addTranslation(0.f, -0.5f, 0.f);
     Scene3DNode_addTransform(stackNode, stackNodeMatrix);
-
-    // Game.StackzData.currentBox = Game.StackzData.currentBox->next;
-    // Game.StackzData.currentBox->stackBox->colorBias = getColorFromIndex(Game.StackzData.stackBoxIndex);
-    // //Game.StackzData.currentBox->stackBox
-    // Game.StackzData.currentBox->stackBox->points->y = 0;
-    // //Scene3D_updateShapeInstance(scene, Game.StackzData.currentBox->stackBox, identityMatrix, getColorFromIndex(Game.StackzData.stackBoxIndex), globalStyle);
-    // //stackBoxes[Game.StackzData.stackBoxIndex] = Game.StackzData.stackBoxes[Game.StackzData.stackBoxIndex] = shape_new_cuboid(1.f,0.25f,1.f,-0.8f);
-    // //stackBoxes[Game.StackzData.stackBoxIndex] = Game.StackzData.stackBoxes[Game.StackzData.stackBoxIndex] = shape_new_cuboid(1.f,0.25f,1.f,getColorFromIndex(Game.StackzData.stackBoxIndex));
-    // //v.dy += 0.5f;
-    // //Scene3DNode_addShapeWithOffset(stackNode, stackBoxes[Game.StackzData.stackBoxIndex], v);
-    // //Scene3DNode_addShape(stackNode, stackBoxes[Game.StackzData.stackBoxIndex]);
-    // Game.StackzData.stackNodeMatrix = matrix_addTranslation(0,-0.5,0);
-    // stackNodeMatrix = &Game.StackzData.stackNodeMatrix;
-    // Scene3DNode_addTransform(stackNode, stackNodeMatrix);
     Game.StackzData.stackBoxIndex++;
 }
 
 static void updateActiveBlockSize(float x, float z, float scalex, float scalez) {
     node_resetTranform(activeNodeSubnode);
     matrix_scaleByAndAddTranslation(activeNodeSubnode, scalex, 1.f, scalez, x, 0.f, z);
-    //node_scaleBy(activeNodeSubnode, scalex, 1.f, scalez);
 }
 
 static void initSceneAndCamera() {
@@ -154,7 +120,6 @@ static void initStack() {
     Game.StackzData.currentNode = Game.StackzData.firstNode;
 
     Scene3DNode_setVisible(ptr->scene3DNode, 1);
-    // Scene3DNode_addShape(stackNode, Game.StackzData.currentBox->stackBox);
     Game.StackzData.stackNodeMatrix = matrix_addTranslation(0,-0.5,0);
     stackNodeMatrix = &Game.StackzData.stackNodeMatrix;
     Scene3DNode_addTransform(stackNode, stackNodeMatrix);
@@ -220,8 +185,6 @@ static void firstLoop() {
     {
         isFirstLoop = 1;
 		sys->resetElapsedTime();
-		// pd->graphics->drawText("69", strlen("69"), kASCIIEncoding, x, y);
-	    //sound->synth->playNote(projectile_sound, 700.f, 1.f, 0.1f, 0);
 	}
 }
 
