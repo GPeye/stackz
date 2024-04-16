@@ -7,8 +7,8 @@
 #include "pd_api.h"
 
 
-void loadStackzSceneData();
+void initStackzSceneData(void);
 
-void updateStackz();
+void updateStackz(void);
 
 #endif

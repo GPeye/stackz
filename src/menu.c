@@ -11,7 +11,7 @@ enum option {
 
 static enum option selected = start;
 
-static void buttonUp() {
+static void buttonUp(void) {
     sys->logToConsole("Up pressed");
     if (selected == start)
         selected = settings;
@@ -20,7 +20,7 @@ static void buttonUp() {
     toUpdate = 1;
 }
 
-static void buttonDown() {
+static void buttonDown(void) {
     sys->logToConsole("Down pressed");
     if (selected == start)
         selected = settings;
@@ -29,14 +29,14 @@ static void buttonDown() {
     toUpdate = 1;
 }
 
-static void buttonA() {
+static void buttonA(void) {
     if (selected == start) {
         Game.gState = State_InGame;
     }
 }
 
 static PDButtons pushed;
-static void handleButtonPush() {
+static void handleButtonPush(void) {
     sys->getButtonState(NULL, &pushed, NULL);
 
     if (pushed & kButtonUp)
@@ -47,7 +47,7 @@ static void handleButtonPush() {
         buttonA();
 }
 
-static void displayTitle() {
+static void displayTitle(void) {
     //ww = sys->formatString(&score, "%d", Game.StackzData.score);
     //= sprintf("%d", Game.StackzData.score);
     //scorewidth = gfx->getTextWidth(Game.font40, , strlen(score), kASCIIEncoding, 0);
@@ -58,13 +58,13 @@ static void displayTitle() {
     //gfx->drawText("0", strlen("0"), kASCIIEncoding, SCREEN_WIDTH/2, 15);
 }
 
-static void displayOptions() {
+static void displayOptions(void) {
     gfx->setFont(Game.font14);
     gfx->drawText("Start", strlen("Start"), kASCIIEncoding, SCREEN_WIDTH / 2 - 70, SCREEN_HEIGHT / 2 + 20);
     gfx->drawText("Settings", strlen("Settings"), kASCIIEncoding, SCREEN_WIDTH / 2 - 70, SCREEN_HEIGHT / 2 + 50);
 }
 
-static void displaySelector() {
+static void displaySelector(void) {
     gfx->setFont(Game.font20);
     if (selected == start) {
         gfx->setDrawMode(kDrawModeInverted);
@@ -82,7 +82,7 @@ static void displaySelector() {
     //gfx->drawText("Settings", strlen("Settings"), kASCIIEncoding, SCREEN_WIDTH / 2 - 70, SCREEN_HEIGHT / 2 + 50);
 }
 
-static void updateIfNeeded() {
+static void updateIfNeeded(void) {
     if(toUpdate > 0) {
         displayTitle();
         displayOptions();
@@ -92,6 +92,6 @@ static void updateIfNeeded() {
     handleButtonPush();
 }
 
-void updateMenu() {
+void updateMenu(void) {
     updateIfNeeded();
 }

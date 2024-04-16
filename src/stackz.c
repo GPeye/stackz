@@ -17,7 +17,6 @@ static Scene3DNode *activeNodeSubnode;
 static Scene3DNode *stackNode;
 
 static Shape3D *activeBox;
-static Shape3D *stackBoxes[STACKMAX];
 
 static Matrix3D *stackNodeMatrix;
 static RenderStyle globalStyle;
@@ -26,8 +25,6 @@ static float leftrightrotation = 45.f;
 
 static float activeBoxWidth = 1.f;
 static float activeBoxDepth = 1.f;
-static float activeBoxX = 0.f;
-static float activeBoxZ = 0.f;
 static float targetBoxWidth = 1.f;
 static float targetBoxDepth = 1.f;
 static float targetBoxX = 0.f;
@@ -42,7 +39,6 @@ static float zoom = 5.f;
 float getColorFromIndex(int index) {
     float adjustedIndex = (index + 10) * 0.4f;
     return (sinf((float)adjustedIndex) * 0.5f) - 0.3f;
-    int x = FLT_MAX;
 }
 
 Vector3D v = { 0.f,0.f,0.f };
@@ -64,13 +60,13 @@ static void updateActiveBlockSize(float x, float z, float scalex, float scalez) 
     matrix_scaleByAndAddTranslation(activeNodeSubnode, scalex, 1.f, scalez, x, 0.f, z);
 }
 
-static void initSceneAndCamera() {
+static void initSceneAndCamera(void) {
     scene = Game.StackzData.scene = scene_new();
-    scene_setCameraOrigin(scene, 0.f, zoom*1.f, zoom*1.2);
+    scene_setCameraOrigin(scene, 0.f, zoom*1.f, zoom*1.2f);
 	scene_setLight(scene, 0.2f, 0.8f, 0.4f);
 }
 
-static void initNodes() {
+static void initNodes(void) {
     rootNode = Game.StackzData.rootNode = Scene3D_getRootNode(scene);
     activeNode = Game.StackzData.activeNode = Scene3DNode_newChild(rootNode);
     activeNodeSubnode = Scene3DNode_newChild(activeNode);
@@ -85,7 +81,7 @@ static void initNodes() {
 #endif
 }
 
-static void initDataValues() {
+static void initDataValues(void) {
     mini3d_setRealloc(sys->realloc);
     Game.StackzData.ellapsed=0.f;
     Game.StackzData.activeOscillator=0.f;
@@ -93,12 +89,12 @@ static void initDataValues() {
     Game.StackzData.crankMatrix = matrix_new();
 }
 
-static void initActiveBox() {
+static void initActiveBox(void) {
     activeBox = Game.StackzData.activeBox = shape_new_cuboid(1.f,0.25f,1.f,-0.1f);
 	Scene3DNode_addShape(activeNodeSubnode, activeBox);
 }
 
-static void initStack() {
+static void initStack(void) {
     if(Game.StackzData.lastNode == NULL) {
         sys->logToConsole("List is empty");
         return;
@@ -125,7 +121,7 @@ static void initStack() {
     Scene3DNode_addTransform(stackNode, stackNodeMatrix);
 }
 
-static void resetStack() {
+static void resetStack(void) {
     struct Node* ptr = Game.StackzData.firstNode;
     do {
         Scene3DNode_setVisible(ptr->scene3DNode, 0);
@@ -135,8 +131,7 @@ static void resetStack() {
     
 }
 
-
-static void resetGame() {
+static void resetGame(void) {
     Game.StackzData.score = 0;
     Game.StackzData.stackBoxIndex = 0;
     sys->resetElapsedTime();
@@ -154,7 +149,7 @@ static void resetGame() {
 }
 
 // Scene Init
-void InitStackzSceneData() {
+void initStackzSceneData(void) {
     initDataValues();
     initSceneAndCamera();
     initNodes();
@@ -162,25 +157,33 @@ void InitStackzSceneData() {
     initStack();
 }
 
+LCDBitmap *bg;
+int bgcreated = 0;
 
-
-static void drawBackground()
+static void drawBackground(void)
 {
-    gfx->clear(LCD_PATTERN_DITHER_GREY60);
-    gfx->fillEllipse(-45, -65, 490, 370, 0.0, 0.0, LCD_PATTERN_DITHER_GREY50_ALT1);
-    gfx->fillEllipse(-40, -60, 480, 360, 0.0, 0.0, LCD_PATTERN_DITHER_GREY45);
-    gfx->fillEllipse(-35, -55, 470, 350, 0.0, 0.0, LCD_PATTERN_DITHER_GREY40);
-    gfx->fillEllipse(-30, -50, 460, 340, 0.0, 0.0, LCD_PATTERN_DITHER_GREY35);
-    gfx->fillEllipse(-25, -45, 450, 330, 0.0, 0.0, LCD_PATTERN_DITHER_GREY30);
-    gfx->fillEllipse(-20, -40, 440, 320, 0.0, 0.0, LCD_PATTERN_DITHER_GREY25);
-    gfx->fillEllipse(-15, -35, 430, 310, 0.0, 0.0, LCD_PATTERN_DITHER_GREY20);
-    gfx->fillEllipse(-10, -30, 420, 300, 0.0, 0.0, LCD_PATTERN_DITHER_GREY15);
-    gfx->fillEllipse(0, -20, 400, 280, 0.0, 0.0, LCD_PATTERN_DITHER_GREY10);
-    gfx->fillEllipse(10, -10, 380, 260, 0.0, 0.0, LCD_PATTERN_DITHER_GREY05);
-    gfx->fillEllipse(20, 0, 360, 240, 0.0, 0.0, kColorWhite);
+    if(bgcreated == 0) {
+        gfx->clear((long unsigned int)LCD_PATTERN_DITHER_GREY60);
+        gfx->fillEllipse(-45, -65, 490, 370, 0.0, 0.0, (long unsigned int)LCD_PATTERN_DITHER_GREY50_ALT1);
+        gfx->fillEllipse(-40, -60, 480, 360, 0.0, 0.0, (long unsigned int)LCD_PATTERN_DITHER_GREY45);
+        gfx->fillEllipse(-35, -55, 470, 350, 0.0, 0.0, (long unsigned int)LCD_PATTERN_DITHER_GREY40);
+        gfx->fillEllipse(-30, -50, 460, 340, 0.0, 0.0, (long unsigned int)LCD_PATTERN_DITHER_GREY35);
+        gfx->fillEllipse(-25, -45, 450, 330, 0.0, 0.0, (long unsigned int)LCD_PATTERN_DITHER_GREY30);
+        gfx->fillEllipse(-20, -40, 440, 320, 0.0, 0.0, (long unsigned int)LCD_PATTERN_DITHER_GREY25);
+        gfx->fillEllipse(-15, -35, 430, 310, 0.0, 0.0, (long unsigned int)LCD_PATTERN_DITHER_GREY20);
+        gfx->fillEllipse(-10, -30, 420, 300, 0.0, 0.0, (long unsigned int)LCD_PATTERN_DITHER_GREY15);
+        gfx->fillEllipse(0, -20, 400, 280, 0.0, 0.0, (long unsigned int)LCD_PATTERN_DITHER_GREY10);
+        gfx->fillEllipse(10, -10, 380, 260, 0.0, 0.0, (long unsigned int)LCD_PATTERN_DITHER_GREY05);
+        gfx->fillEllipse(20, 0, 360, 240, 0.0, 0.0, kColorWhite);
+        bg = gfx->copyFrameBufferBitmap();
+        bgcreated=1;
+        sys->logToConsole("creating background");
+    } else {
+        gfx->drawBitmap(bg, 0, 0, kBitmapUnflipped);
+    }
 }
 
-static void firstLoop() {
+static void firstLoop(void) {
     if(isFirstLoop == 0)
     {
         isFirstLoop = 1;
@@ -188,38 +191,39 @@ static void firstLoop() {
 	}
 }
 
-static void buttonUp() {
+static void buttonUp(void) {
     sys->logToConsole("Up pressed");
 }
 
-static void buttonDown() {
+static void buttonDown(void) {
     sys->logToConsole("Down pressed");
 }
 
-static void buttonLeft() {
+static void buttonLeft(void) {
     sys->logToConsole("Left pressed");
     leftrightrotation = 10.f;
     matrix_updateRotation(Game.StackzData.crankMatrix, leftrightrotation, 0.f, 1.f, 0.f);
     Scene3DNode_addTransform(rootNode, Game.StackzData.crankMatrix);
 }
 
-static void buttonRight() {
+static void buttonRight(void) {
     sys->logToConsole("Right pressed");
     leftrightrotation = -10.f;
     matrix_updateRotation(Game.StackzData.crankMatrix, leftrightrotation, 0.f, 1.f, 0.f);
     Scene3DNode_addTransform(rootNode, Game.StackzData.crankMatrix);
 }
 
-static void buttonA() {
+static void buttonA(void) {
     addBoxToStack(0.f,0.f,1.f,1.f);
     sys->logToConsole("A pressed");
 }
 
-static void buttonB() {
+static void buttonB(void) {
     sys->logToConsole("B pressed");
     if (direction == 0) {
         if (Game.StackzData.activeOscillator > (targetBoxDepth * 2.f) + targetBoxX || Game.StackzData.activeOscillator < -(targetBoxDepth*2.f)+targetBoxX) {
-            resetGame();
+            Game.StackzData.gameover = 1;
+            //resetGame();
             return;
         }
         sys->logToConsole("hit");
@@ -285,19 +289,17 @@ static void buttonB() {
         Game.StackzData.score++;
 
         float difference = Game.StackzData.activeOscillator;
-        sys->logToConsole("difference: %f\r", Game.StackzData.activeOscillator);
+        //sys->logToConsole("difference: %f\r", (double)Game.StackzData.activeOscillator);
 
         
         
         if (direction == 0) {
             float scale = (activeBoxDepth - (fabsf(difference)/2.f)) / activeBoxDepth;
             addBoxToStack((Game.StackzData.activeOscillator / 2), 0.f, scale, 1.f);
-            //addBoxToStack(0.f, 0.f, scale, 1.f);
         }
         else {
             float scale = (activeBoxWidth - (fabsf(difference) / 2.f)) / activeBoxWidth;
             addBoxToStack(0.f, (-Game.StackzData.activeOscillator / 2), 1.f, scale);
-            //addBoxToStack(0.f, 0.f, 1.f, scale);
         }
 
         
@@ -306,16 +308,17 @@ static void buttonB() {
 }
 
 static PDButtons pushed;
-static void handleButtonPush() {
-	sys->getButtonState(NULL, &pushed, NULL);
+static PDButtons current;
+static void handleButtonPush(void) {
+	sys->getButtonState(&current, &pushed, NULL);
 	
 	if ( pushed & kButtonUp )
 		buttonUp();
     if ( pushed & kButtonDown )
 		buttonDown();
-    if ( pushed & kButtonLeft )
+    if ( pushed & kButtonLeft || current & kButtonLeft )
 		buttonLeft();
-    if ( pushed & kButtonRight )
+    if ( pushed & kButtonRight || current & kButtonLeft  )
 		buttonRight();
     if ( pushed & kButtonA )
 		buttonA();
@@ -323,12 +326,12 @@ static void handleButtonPush() {
 		buttonB();
 }
 
-static void setupOscillator() {
+static void setupOscillator(void) {
     Game.StackzData.ellapsed = (sys->getElapsedTime() +2.f) * 1.f;
     Game.StackzData.activeOscillator = sinf(Game.StackzData.ellapsed)*3.f;
 }
 
-static void OscillateActiveNode() {
+static void OscillateActiveNode(void) {
     if (direction == 0) {
         Game.StackzData.activeNodeMatrix = matrix_addTranslation(Game.StackzData.activeOscillator,0.f,0.f);
         Scene3DNode_setTransform(activeNode, &Game.StackzData.activeNodeMatrix);
@@ -338,50 +341,103 @@ static void OscillateActiveNode() {
     }
 }
 
-static void draw() {
+static void draw(void) {
     Scene3D_draw(Game.StackzData.scene, gfx->getFrame(), LCD_ROWSIZE);
 	gfx->markUpdatedRows(0, LCD_ROWS-1);
 }
+
 static char* score;
 static int ww = 0;
 int scorewidth = 0;
-static void displayScore() {
+static void displayScore(void) {
+    gfx->setFont(Game.font14);
     ww = sys->formatString(&score,"%d",Game.StackzData.score);
-     //= sprintf("%d", Game.StackzData.score);
     scorewidth = gfx->getTextWidth(Game.font, score, strlen(score),kASCIIEncoding,0);
     gfx->drawText(score, strlen(score), kASCIIEncoding, SCREEN_WIDTH/2-(scorewidth/2), 15);
-    
     sys->realloc(score, 0);
-    //gfx->drawText("0", strlen("0"), kASCIIEncoding, SCREEN_WIDTH/2, 15);
 }
 
-static void rotateRootNodeWithCrank() {
+static void zoomCameraWithCrank(void) {
     Game.StackzData.crankChange = sys->getCrankChange() / 50.f;
     zoom -= Game.StackzData.crankChange;
     if (zoom > 10.f)
         zoom = 10.f;
     if (zoom < 2.f)
         zoom = 2.f;
-    scene_setCameraOrigin(scene, 0.f, zoom * 1.f, zoom * 1.2);
-    //matrix_updateRotation(Game.StackzData.crankMatrix, Game.StackzData.crankChange,1.f,0.f,0.f);
-	//Scene3DNode_addTransform(rootNode, Game.StackzData.crankMatrix);
+    scene_setCameraOrigin(scene, 0.f, zoom * 1.f, zoom * 1.2f);
+}
+
+static float outBounce(float x) {
+    const float n1 = 7.5625f;
+    const float d1 = 2.75f;
+    float tx = 0.f;
+    if (x < 1.f / d1) {
+        return n1 * x * x;
+    } else if (x < 2.f / d1) {
+        tx = x - 1.5f / d1;
+        return n1 * tx * tx + 0.75f;
+    } else if (x < 2.5f / d1) {
+        tx = x - 2.25f / d1;
+        return n1 * tx * tx + 0.9375f;
+    } else {
+        tx = x - 2.625f / d1;
+        return n1 * tx * tx + 0.984375f;
+    }
+}
+
+int gameovertextwidth = 0;
+float bounce = 0.f;
+float startofGanim = 0.f;
+int animStarted = 0;
+float durationofGainm = 2.f;
+float ganimstarty = 0.f;
+float gainmendy = SCREEN_HEIGHT / 2 + 20;
+static void displayGameOver(void) {
+    if (animStarted == 0) {
+        sys->resetElapsedTime();
+        animStarted = 1;
+    }
+    gfx->setFont(Game.font20);
+    gameovertextwidth = gfx->getTextWidth(Game.font, "Game Over", strlen("Game Over"),kASCIIEncoding,0);
+    float progress = sys->getElapsedTime() / durationofGainm;
+    if (progress < 1.f) {
+        bounce = outBounce(progress);
+        float animdif = gainmendy - ganimstarty;
+        float curros = animdif * bounce; 
+        //sys->logToConsole("progress: %f, bounce: %f, curros: %f", progress, bounce, curros);
+
+        gfx->drawText("Game Over", strlen("Game Over"), kASCIIEncoding, SCREEN_WIDTH/2-(gameovertextwidth/2), curros - 20 );
+    } else {
+        gfx->drawText("Game Over", strlen("Game Over"), kASCIIEncoding, SCREEN_WIDTH/2-(gameovertextwidth/2), SCREEN_HEIGHT / 2);
+    }
 }
 
 
 void updateStackz() {
-    //firstLoop();
-    drawBackground();
-    handleButtonPush();
+    firstLoop();
+    if(Game.StackzData.gameover == 0){
+        drawBackground();
+        handleButtonPush();
+        
+        setupOscillator();
+        OscillateActiveNode();
+
+        zoomCameraWithCrank();
+
+        displayScore();
+        draw();
+    } else {
+        drawBackground();
+        displayScore();
+        draw();
+        displayGameOver();
+
+        sys->getButtonState(NULL, &pushed, NULL);
+        
+        if ( pushed ) {
+            Game.StackzData.gameover = 0;
+            resetGame();
+        }
+    }
     
-    setupOscillator();
-	OscillateActiveNode();
-
-    rotateRootNodeWithCrank();
-
-    displayScore();
-
-    //getxyz(Game.StackzData.activeNode);
-    //sys->logToConsole("centerx: %f",);
-    
-    draw();
 }

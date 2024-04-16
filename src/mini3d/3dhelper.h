@@ -20,7 +20,7 @@ enum CuboidFace {
     right,
 };
 
-Scene3D *scene_new();
+Scene3D *scene_new(void);
 
 void scene_setCameraOrigin(Scene3D *scene, float x, float y, float z);
 
@@ -28,11 +28,9 @@ void scene_setCameraUp(Scene3D *scene, float x, float y, float z, float ux, floa
 
 void scene_setLight(Scene3D *scene, float x, float y, float z);
 
-Shape3D *shape_new();
+Shape3D *shape_new(void);
 
 Shape3D *shape_new_cuboid(float width, float height, float depth, float colorBias);
-
-void shrinkCuboidWidth(Scene3DNode *node, float amount);
 
 void node_scaleBy(Scene3DNode *node, float sx, float sy, float sz);
 
@@ -42,9 +40,9 @@ void matrix_scaleByAndAddTranslation(Scene3DNode* node, float sx, float sy, floa
 
 Point3D *point_new(float x, float y, float z);
 
-Shape3D *shape_addFace(Shape3D *shape, Point3D *a, Point3D *b, Point3D *c, Point3D *d, float colorBias);
+void shape_addFace(Shape3D *shape, Point3D *a, Point3D *b, Point3D *c, Point3D *d, float colorBias);
 
-Matrix3D *matrix_new();
+Matrix3D *matrix_new(void);
 
 Matrix3D *matrix_newRotation(float angle, float x, float y, float z);
 
@@ -55,7 +53,5 @@ Matrix3D matrix_addTranslation(float x, float y, float z);
 Matrix3D matrix_addIdentityTranslation(float x, float y, float z);
 
 void node_addTransform(Matrix3D *matrix);
-
-void getxyz(Scene3DNode *node);
 
 #endif

@@ -10,7 +10,7 @@ const struct playdate_sound* sound = NULL;
 
 GameStruct Game;
 
-static void initFont() {
+static void initFont(void) {
 	const char* fontPath14 = "sofachrome-rg-14";
 	const char* fontPath20 = "sofachrome-rg-20";
 	const char* fontPath40 = "sofachrome-rg-40";
@@ -27,7 +27,7 @@ static void initFont() {
 	gfx->setFont(Game.font14);
 }
 
-static void initCircularLinkedListOfStack() {
+static void initCircularLinkedListOfStack(void) {
 	struct Node* temp;
 	for (int i = 0; i < STACKMAX; i++) {
 		struct Node* node;
@@ -64,7 +64,7 @@ void InitGame(PlaydateAPI* pd)
 
 	initCircularLinkedListOfStack();
 
-	InitStackzSceneData();
+	initStackzSceneData();
 }
 
 int Update(void* userdata)
@@ -74,10 +74,10 @@ int Update(void* userdata)
 	switch (Game.gState)
 	{
 	case State_Menu:
-		updateMenu(&Game);
+		updateMenu();
 		break;
 	case State_InGame:
-		updateStackz(&Game);
+		updateStackz();
 		break;
 	default:
 		break;

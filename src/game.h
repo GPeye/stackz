@@ -74,6 +74,8 @@ typedef struct
         float activeOscillator;
         int score;
 
+        int gameover;
+
     } StackzData;
 
 } GameStruct;

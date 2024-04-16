@@ -101,15 +101,6 @@ Shape3D *shape_new_cuboid(float width, float height, float depth, float colorBia
     return shape;
 }
 
-void getxyz(Scene3DNode *node) {
-    Matrix3D xform = node->transform;
-    //Matrix3D id = identityMatrix;
-    
-    printf("00: %f\r\n",xform.m[0][0]);
-    printf("dx: %f\r\n",xform.dx);
-    //printf("02: %f\r",xform.m[0][2]);
-}
-
 void node_scaleBy(Scene3DNode *node, float sx, float sy, float sz) {
 	Matrix3D xform = node->transform;
 	xform.isIdentity = 0;
@@ -168,20 +159,6 @@ void matrix_scaleByAndAddTranslation(Scene3DNode* node, float sx, float sy, floa
     Scene3DNode_setTransform(node, &xform);
 }
 
-void shrinkCuboidWidth(Scene3DNode *node, float amount) {
-    ShapeInstance* nodeshape = node->shapes;
-    Shape3D* shape = nodeshape->prototype;
-    FaceInstance* face = &nodeshape->faces[front];
-    //face->p1 = &nodeshape->points[shape->faces[i].p1]
-    //Face3D* face = &proto->faces[0];
-    Point3D *point = &nodeshape->points[shape->faces[front].p1];
-    Face3D *fff = &shape->faces[front];
-    Point3D *ppp = &fff->p1;
-    
-    printf("point: %f", ppp->x);
-    printf("point: %f", ppp->y);
-}
-
 Point3D *point_new(float x, float y, float z)
 {
     Point3D *p = m3d_malloc(sizeof(Point3D));
@@ -191,12 +168,13 @@ Point3D *point_new(float x, float y, float z)
     return p;
 }
 
-Shape3D *shape_addFace(Shape3D *shape, Point3D *a, Point3D *b, Point3D *c, Point3D *d, float colorBias)
+void shape_addFace(Shape3D *shape, Point3D *a, Point3D *b, Point3D *c, Point3D *d, float colorBias)
 {
     Shape3D_addFace(shape, a, b, c, d, colorBias);
+    return;
 }
 
-Matrix3D *matrix_new() {
+Matrix3D *matrix_new(void) {
     Matrix3D* p = m3d_malloc(sizeof(Matrix3D));
 	
 	p->isIdentity = 0;
