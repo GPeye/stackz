@@ -12,6 +12,7 @@
 
 static Scene3D *scene;
 static Scene3DNode *rootNode;
+static Scene3DNode *rotationNode;
 static Scene3DNode *activeNode;
 static Scene3DNode *activeNodeSubnode;
 static Scene3DNode *stackNode;
@@ -22,6 +23,7 @@ static Matrix3D *stackNodeMatrix;
 static RenderStyle globalStyle;
 
 static float leftrightrotation = 45.f;
+static float updownrotation = 0.f;
 
 static float activeBoxWidth = 1.f;
 static float activeBoxDepth = 1.f;
@@ -64,15 +66,17 @@ static void initSceneAndCamera(void) {
     scene = Game.StackzData.scene = scene_new();
     scene_setCameraOrigin(scene, 0.f, zoom*1.f, zoom*1.2f);
 	scene_setLight(scene, 0.2f, 0.8f, 0.4f);
+    sys->setPeripheralsEnabled(kAccelerometer);
 }
 
 static void initNodes(void) {
     rootNode = Game.StackzData.rootNode = Scene3D_getRootNode(scene);
-    activeNode = Game.StackzData.activeNode = Scene3DNode_newChild(rootNode);
+    rotationNode = Game.StackzData.activeNode = Scene3DNode_newChild(rootNode);
+    activeNode = Game.StackzData.activeNode = Scene3DNode_newChild(rotationNode);
     activeNodeSubnode = Scene3DNode_newChild(activeNode);
-    stackNode = Game.StackzData.stackNode = Scene3DNode_newChild(rootNode);
+    stackNode = Game.StackzData.stackNode = Scene3DNode_newChild(rotationNode);
     matrix_updateRotation(Game.StackzData.crankMatrix, leftrightrotation, 0.f, 1.f, 0.f);
-    Scene3DNode_addTransform(rootNode, Game.StackzData.crankMatrix);
+    Scene3DNode_addTransform(rotationNode, Game.StackzData.crankMatrix);
 #ifdef BORDER
     RenderStyle style = Scene3DNode_getRenderStyle(rootNode);
     style |= kRenderWireframe;
@@ -87,6 +91,7 @@ static void initDataValues(void) {
     Game.StackzData.activeOscillator=0.f;
     Game.StackzData.score=0;
     Game.StackzData.crankMatrix = matrix_new();
+    Game.StackzData.updownMatrix = matrix_new();
 }
 
 static void initActiveBox(void) {
@@ -192,22 +197,26 @@ static void firstLoop(void) {
 }
 
 static void buttonUp(void) {
+    updownrotation += 0.5f;
+    if (updownrotation > 5.f)
+        updownrotation = 5.f;
     sys->logToConsole("Up pressed");
 }
 
 static void buttonDown(void) {
+    updownrotation -= 0.5f;
+    if (updownrotation < -5.f)
+        updownrotation = -5.f;
     sys->logToConsole("Down pressed");
 }
 
 static void buttonLeft(void) {
-    sys->logToConsole("Left pressed");
     leftrightrotation = 10.f;
     matrix_updateRotation(Game.StackzData.crankMatrix, leftrightrotation, 0.f, 1.f, 0.f);
     Scene3DNode_addTransform(rootNode, Game.StackzData.crankMatrix);
 }
 
 static void buttonRight(void) {
-    sys->logToConsole("Right pressed");
     leftrightrotation = -10.f;
     matrix_updateRotation(Game.StackzData.crankMatrix, leftrightrotation, 0.f, 1.f, 0.f);
     Scene3DNode_addTransform(rootNode, Game.StackzData.crankMatrix);
@@ -215,15 +224,12 @@ static void buttonRight(void) {
 
 static void buttonA(void) {
     addBoxToStack(0.f,0.f,1.f,1.f);
-    sys->logToConsole("A pressed");
 }
 
 static void buttonB(void) {
-    sys->logToConsole("B pressed");
     if (direction == 0) {
         if (Game.StackzData.activeOscillator > (targetBoxDepth * 2.f) + targetBoxX || Game.StackzData.activeOscillator < -(targetBoxDepth*2.f)+targetBoxX) {
             Game.StackzData.gameover = 1;
-            //resetGame();
             return;
         }
         sys->logToConsole("hit");
@@ -272,6 +278,7 @@ static void buttonB(void) {
         direction = 1;
     else
         direction = 0;
+
     sys->resetElapsedTime();
     
     return;
@@ -292,7 +299,6 @@ static void buttonB(void) {
         //sys->logToConsole("difference: %f\r", (double)Game.StackzData.activeOscillator);
 
         
-        
         if (direction == 0) {
             float scale = (activeBoxDepth - (fabsf(difference)/2.f)) / activeBoxDepth;
             addBoxToStack((Game.StackzData.activeOscillator / 2), 0.f, scale, 1.f);
@@ -312,13 +318,13 @@ static PDButtons current;
 static void handleButtonPush(void) {
 	sys->getButtonState(&current, &pushed, NULL);
 	
-	if ( pushed & kButtonUp )
+	if ( pushed & kButtonUp || current & kButtonUp )
 		buttonUp();
-    if ( pushed & kButtonDown )
+    if ( pushed & kButtonDown || current & kButtonDown )
 		buttonDown();
     if ( pushed & kButtonLeft || current & kButtonLeft )
 		buttonLeft();
-    if ( pushed & kButtonRight || current & kButtonLeft  )
+    if ( pushed & kButtonRight || current & kButtonRight )
 		buttonRight();
     if ( pushed & kButtonA )
 		buttonA();
@@ -355,16 +361,6 @@ static void displayScore(void) {
     scorewidth = gfx->getTextWidth(Game.font, score, strlen(score),kASCIIEncoding,0);
     gfx->drawText(score, strlen(score), kASCIIEncoding, SCREEN_WIDTH/2-(scorewidth/2), 15);
     sys->realloc(score, 0);
-}
-
-static void zoomCameraWithCrank(void) {
-    Game.StackzData.crankChange = sys->getCrankChange() / 50.f;
-    zoom -= Game.StackzData.crankChange;
-    if (zoom > 10.f)
-        zoom = 10.f;
-    if (zoom < 2.f)
-        zoom = 2.f;
-    scene_setCameraOrigin(scene, 0.f, zoom * 1.f, zoom * 1.2f);
 }
 
 static float outBounce(float x) {
@@ -413,10 +409,62 @@ static void displayGameOver(void) {
 }
 
 
+static float accelx;
+static float accely;
+static float accelz;
+static float smoothing = 0.9f;
+static float shiftx = 0.0f;
+void handleRotation(void) {
+	sys->getAccelerometer(&accelx, &accely, &accelz);
+	//pd->system->logToConsole("Accel data: x(%f) y(%f) z(%f)\r", accelx, accely, accelz);
+	shiftx = smoothing * shiftx + (1-smoothing) * accelx;
+	//pd->system->logToConsole("shiftx: %f\r", shiftx);
+	//activebox1->points->x = res;
+
+	//activeNode->transform.dz = res;
+
+	//angle = sys->getCrankChange();
+
+	//matrix_updateRotation(Game.StackzData.updownMatrix, shiftx*90,0.f,0.f,1.f);
+	//Scene3DNode_setTransform(rootNode, Game.StackzData.updownMatrix);
+}
+
+static void zoomCameraWithCrank(void) {
+    Game.StackzData.crankChange = sys->getCrankChange() / 50.f;
+
+    sys->logToConsole("shiftx: %f", (double)shiftx);
+
+    float rotty = shiftx * -5.f;
+    zoom -= Game.StackzData.crankChange;
+    if (zoom > 10.f)
+        zoom = 10.f;
+    if (zoom < 2.f)
+        zoom = 2.f;
+    if (zoom*1.2f - (updownrotation) < 0.1f) {
+        scene_setCameraUp(scene, 0.f, zoom*1.f + updownrotation, 0.1f, rotty,-1.f,0.f);
+    } else {
+        scene_setCameraUp(scene, 0.f, zoom*1.f + updownrotation, zoom*1.2f - (updownrotation), rotty,-1.f,0.f);
+    }
+}
+
+int isFlipped=1;
+void flipCamera(void) {
+	if(isFlipped == 0){
+		isFlipped = 1;
+		sys->logToConsole("flipped");
+		scene_setCameraUp(scene, 0.f, 5.f, 6.f, 5.f,0.f,0.f);
+	} else {
+		isFlipped = 0;
+		scene_setCameraUp(scene, 0.f, 5.f, 6.f, 0.f,-1.f,0.f);
+	}
+}
+
+
 void updateStackz() {
     firstLoop();
     if(Game.StackzData.gameover == 0){
         drawBackground();
+        handleRotation();
         handleButtonPush();
         
         setupOscillator();

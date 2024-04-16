@@ -11,7 +11,7 @@
 #define SCREEN_WIDTH 400
 #define SCREEN_HEIGHT 240
 
-#define STACKMAX 15
+#define STACKMAX 20
 
 extern const struct playdate_graphics *gfx;
 extern const struct playdate_sys *sys;
@@ -67,6 +67,7 @@ typedef struct
         Matrix3D activeNodeMatrix;
         Matrix3D stackNodeMatrix;
         Matrix3D *crankMatrix;
+        Matrix3D *updownMatrix;
 
         int stackBoxIndex;
         float ellapsed;

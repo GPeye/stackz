@@ -51,7 +51,6 @@ static void initCircularLinkedListOfStack(void) {
 void InitGame(PlaydateAPI* pd)
 {
 	pd->display->setRefreshRate(30);
-	//Game.gState = State_InGame;
 	Game.gState = State_Menu;
 	Game.gPd = pd;
 	gfx = Game.gPd->graphics;
@@ -69,8 +68,6 @@ void InitGame(PlaydateAPI* pd)
 
 int Update(void* userdata)
 {
-	//gfx->clear(kColorWhite);
-
 	switch (Game.gState)
 	{
 	case State_Menu:
@@ -83,6 +80,6 @@ int Update(void* userdata)
 		break;
 	}
 
-	sys->drawFPS(0, 0);
+	//sys->drawFPS(0, 0);
 	return 1;
 }
